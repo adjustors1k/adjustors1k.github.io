@@ -98,6 +98,9 @@
         }
         .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 
+        /* Right column wrapper to stack profile + socials tightly */
+        .sidebar-col{display:flex;flex-direction:column;gap:10px}
+
         /* Projects */
         section h2{margin:0 0 12px 0}
         .projects{
@@ -212,7 +215,8 @@
         @media (max-width:880px){
             .hero{grid-template-columns:1fr; padding-bottom:6px}
             .grid-2{grid-template-columns:1fr}
-            .aside-profile{order:-1}
+            /* Show the right column (profile + socials) above the intro on mobile */
+            .sidebar-col{order:-1}
         }
         /* Modal for product details */
         .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:1200}
@@ -323,26 +327,28 @@
                     </div>
                 </div>
 
-                <aside class="card aside-profile" aria-label="Profile">
-                    <div class="avatar">
-                        <img src="Images/IMG_0371.jpg" srcset="Images/IMG_0371.jpg 1080w" sizes="120px" decoding="async" alt="Andrew Rudman — profile photo" />
-                    </div>
-                    <div style="font-weight:700">Andrew Rudman</div>
-                    <div style="color:var(--muted);margin-top:6px">Video Editor & Music Producer</div>
-                    <div style="color:var(--muted);margin-top:6px">@adjustors1k · <span class="badge-font" style="background:rgba(255,255,255,0.02);padding:4px 8px;border-radius:8px;color:var(--muted);font-size:0.82rem;vertical-align:middle">1k forever®</span></div>
+                <div class="sidebar-col">
+                    <aside class="card aside-profile" aria-label="Profile">
+                        <div class="avatar">
+                            <img src="Images/IMG_0371.jpg" srcset="Images/IMG_0371.jpg 1080w" sizes="120px" decoding="async" alt="Andrew Rudman — profile photo" />
+                        </div>
+                        <div style="font-weight:700">Andrew Rudman</div>
+                        <div style="color:var(--muted);margin-top:6px">Video Editor & Music Producer</div>
+                        <div style="color:var(--muted);margin-top:6px">@adjustors1k · <span class="badge-font" style="background:rgba(255,255,255,0.02);padding:4px 8px;border-radius:8px;color:var(--muted);font-size:0.82rem;vertical-align:middle">1k forever®</span></div>
 
-                    <div class="cta">
-                        <a class="btn" href="#contact">Contact</a>
-                    </div>
+                        <div class="cta">
+                            <a class="btn" href="#contact">Contact</a>
+                        </div>
 
-                    <div style="margin-top:12px;color:var(--muted);font-size:0.92rem">
-                        <div>Open to freelance & full‑time</div>
+                        <div style="margin-top:12px;color:var(--muted);font-size:0.92rem">
+                            <div>Open to freelance & full‑time</div>
+                        </div>
+                    </aside>
+
+                    <!-- Linktree card under profile -->
+                    <div class="card linktree-card" style="text-align:center; padding:12px">
+                        <a class="btn ghost" href="https://linktr.ee/Adjustors_" target="_blank" rel="noopener noreferrer">my socials</a>
                     </div>
-                </aside>
-                
-                <!-- Linktree card under profile -->
-                <div class="card" style="grid-column:2; text-align:center; padding:12px">
-                    <a class="btn ghost" href="https://linktr.ee/Adjustors_" target="_blank" rel="noopener noreferrer">my socials</a>
                 </div>
             </section>
 
