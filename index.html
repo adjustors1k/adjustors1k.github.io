@@ -1,649 +1,85 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>1kfvr</title>
-    <meta name="description" content="Portfolio of Andrew Rudman — video editor & music producer." />
-    <!-- Site icons -->
+    <meta name="description" content="Portfolio of Andrew Rudman  video editor & music producer." />
     <link rel="icon" type="image/png" href="Images/1k fvr logo 4_000002_00000.png" />
     <link rel="apple-touch-icon" href="Images/1k fvr logo 4_000002_00000.png" />
     <style>
         :root{
-            /* Black & White theme */
             --bg:#000000;
-            --card:#0b0b0b;
-            --muted:#bfbfbf;
             --accent:#ffffff;
-            --glass: rgba(255,255,255,0.03);
-            --radius:12px;
-            --gap:18px;
+            --muted:#bfbfbf;
             font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
             color-scheme: dark;
         }
         *{box-sizing:border-box}
-        html,body{height:100%}
         body{
             margin:0;
             background:var(--bg);
             color:var(--accent);
-            -webkit-font-smoothing:antialiased;
-            line-height:1.45;
-            padding:28px;
-        }
-
-        a{color:var(--accent); text-decoration:none}
-        a:focus{outline:3px solid rgba(125,211,252,0.18); outline-offset:4px; border-radius:6px}
-
-        .container{max-width:1100px;margin:0 auto}
-
-        header{
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:12px;
-            margin-bottom:22px;
-        }
-        .brand{
-            display:flex;
-            gap:12px;
-            align-items:center;
-        }
-        .logo{
-            width:64px;height:64px;border-radius:12px;
-            background:var(--accent);
-            display:grid;place-items:center;font-weight:700;color:#000;
-            box-shadow:0 6px 18px rgba(255,255,255,0.03), inset 0 -6px 20px rgba(0,0,0,0.25);
-        }
-        .logo img{width:100%;height:100%;object-fit:contain;display:block;border-radius:10px}
-        nav{display:flex;gap:10px;align-items:center}
-        .nav-link{
-            font-size:0.95rem;color:var(--muted);padding:8px 10px;border-radius:8px;
-        }
-        .nav-link:hover{background:var(--glass); color:#fff}
-
-        .hero{
-            display:grid;
-            grid-template-columns: 1fr 340px;
-            gap:var(--gap);
-            row-gap:10px; /* tighten vertical spacing so Linktree sits closer under profile */
-            align-items:start;
-            margin-bottom:28px;
-        }
-        .card{
-            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            border-radius:var(--radius);
-            padding:20px;
-            box-shadow: 0 6px 30px rgba(2,6,23,0.6);
-            border:1px solid rgba(255,255,255,0.03);
-        }
-
-        .intro h1{margin:0 0 6px 0;font-size:1.6rem}
-        .intro p{margin:0;color:var(--muted);font-size:0.98rem}
-
-        .meta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
-        .chip{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:0.9rem}
-
-        .aside-profile{
-            text-align:center;
-            padding-top:4px;
-        }
-        .avatar{
-            width:120px;height:120px;border-radius:18px;margin:0 auto 12px;
-            overflow:hidden;background:#111;display:block;
-            box-shadow:0 10px 30px rgba(255,255,255,0.03);
-        }
-        .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-        .cta{display:flex;gap:10px;justify-content:center;margin-top:10px}
-        .btn{
-            background:var(--accent);
-            color:#000;padding:10px 14px;border-radius:10px;font-weight:600;border:none;cursor:pointer;
-        }
-        .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-
-        /* Right column wrapper to stack profile + socials tightly */
-        .sidebar-col{display:flex;flex-direction:column;gap:10px}
-
-        /* Projects */
-        section h2{margin:0 0 12px 0}
-        .projects{
-            display:grid;
-            grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-            gap:var(--gap);
-            margin-top:8px;
-        }
-        .project{
-            position:relative;
-            overflow:hidden;
-            min-height:140px;
-            border-radius:14px;
-            background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            padding:14px;
+            height:100vh;
             display:flex;
             flex-direction:column;
-            /* use normal flow; push the info block to the bottom with a separate rule */
-            justify-content:flex-start;
-            transition:transform .25s ease, box-shadow .25s ease;
-            border:1px solid rgba(255,255,255,0.03);
-        }
-        .project:hover{transform:translateY(-6px); box-shadow:0 14px 40px rgba(2,6,23,0.55)}
-        .p-thumb{
-            /* Keep thumbnails small but preserve 16:9 aspect ratio so height isn't squashed */
-            aspect-ratio:16/9;
-            height:auto;
-            max-height:160px; /* visual cap while still keeping aspect */
-            border-radius:10px;
-            background:#111;
-            display:block;
-            overflow:hidden;
-            color:var(--muted);
-            font-weight:700;
-            position:relative; /* allow overlays (mute button) */
-        }
-
-        /* Square placeholder variant for shop item (no text) */
-        .p-thumb.placeholder{
-            aspect-ratio:1/1;
-            max-height:160px;
-            display:block;
-            border-radius:10px;
-            background:#111;
-        }
-        /* Shop-specific styling: make the shop area a centered square */
-        #shop .projects{display:flex;justify-content:center;align-items:center}
-        /* Revert inner shop sizing back to previous wider square */
-        /* Make the shop project content centered and smaller so the grey square sits centered */
-        #shop .project{
-            width:auto;
-            max-width:280px;
-            margin:0;
-            min-height:360px;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            gap:10px;
-        }
-        #shop .p-thumb.placeholder{width:220px;max-width:220px;max-height:220px;margin:0 auto;display:flex;align-items:center;justify-content:center}
-        #shop .project .p-title{ text-align:center }
-
-        /* Shorten the black card container around the shop to make it more compact */
-        #shop.card{
-            padding-top:12px;
-            padding-bottom:12px;
-            max-height:420px;
-            overflow:hidden;
-        }
-
-        /* Mute/unmute overlay for thumbnail videos */
-        .mute-toggle{
-            position:absolute;
-            top:8px;
-            right:8px;
-            background:rgba(0,0,0,0.45);
-            border:1px solid rgba(255,255,255,0.06);
-            color:var(--accent);
-            padding:6px 8px;
-            border-radius:8px;
-            font-size:0.95rem;
-            cursor:pointer;
-            display:inline-flex;
             align-items:center;
             justify-content:center;
-            backdrop-filter: blur(4px);
+            padding:20px;
         }
-        .mute-toggle:focus{outline:2px solid rgba(125,211,252,0.18);}
-        .p-body{margin-top:10px;display:flex;justify-content:space-between;align-items:center}
-        .p-title{font-weight:700}
-        .tags{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
-        .tag{font-size:0.75rem;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)}
-
-        /* Ensure the project info sits immediately below the thumbnail */
-        .project > div:nth-child(2){
-            margin-top:8px; /* small gap under the thumbnail */
+        .logo{
+            width:120px;
+            height:120px;
+            border-radius:20px;
+            margin-bottom:30px;
+            overflow:hidden;
+        }
+        .logo img{
+            width:100%;
+            height:100%;
+            object-fit:contain;
+            display:block;
+        }
+        h1{
+            margin:0 0 10px 0;
+            font-size:2rem;
+        }
+        .subtitle{
+            color:var(--muted);
+            margin-bottom:40px;
+            text-align:center;
+        }
+        .buttons{
             display:flex;
             flex-direction:column;
-            justify-content:flex-start;
-            gap:8px;
+            gap:25px;
+            width:100%;
+            max-width:700px;
         }
-
-        /* Skills & Contact */
-        .grid-2{display:grid;grid-template-columns:1fr 320px;gap:var(--gap);align-items:start}
-        .skills-list{display:flex;flex-wrap:wrap;gap:10px}
-        .skill{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;color:var(--muted)}
-
-        /* Footer */
-        footer{margin-top:30px;text-align:center;color:var(--muted);font-size:0.9rem}
-
-        /* Responsive */
-        @media (max-width:880px){
-            .hero{grid-template-columns:1fr; padding-bottom:6px}
-            .grid-2{grid-template-columns:1fr}
-            /* Show the right column (profile + socials) above the intro on mobile */
-            .sidebar-col{order:-1}
+        .btn{
+            background:var(--accent);
+            color:#000;
+            padding:62px 60px;
+            border-radius:16px;
+            font-weight:600;
+            font-size:1.5rem;
+            text-align:center;
+            text-decoration:none;
+            transition:all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:0 4px 12px rgba(255,255,255,0.1);
         }
-        /* Modal for product details */
-        .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:1200}
-        .modal.open{display:flex}
-        .modal-content{background:var(--card);color:var(--accent);padding:18px;border-radius:12px;max-width:760px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.04)}
-        .modal-close{position:absolute;right:18px;top:18px;background:transparent;border:0;color:var(--muted);font-size:1.1rem;cursor:pointer}
-        .modal-title{font-size:1.25rem;margin:0 0 8px 0}
-        .modal-body{display:grid;grid-template-columns:1fr 260px;gap:14px}
-        .modal-audio{width:100%}
-        @media (max-width:880px){.modal-body{grid-template-columns:1fr}}
-        /* Custom badge font (drop WOFF/WOFF2 into fonts/ and name accordingly) */
-        @font-face{
-            font-family: '1kForever';
-            src: url('fonts/1k-forever.woff2') format('woff2'),
-                 url('fonts/1k-forever.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
+        .btn:hover{
+            transform:translateY(-12px) scale(1.1);
+            box-shadow:0 20px 60px rgba(255,255,255,0.5), 0 0 50px rgba(255,255,255,0.4), inset 0 0 20px rgba(255,255,255,0.2);
+            filter:brightness(1.2);
         }
-        .badge-font{font-family:'1kForever', "Segoe UI", Roboto, Arial, sans-serif; font-weight:700}
     </style>
 </head>
 <body>
-    <a class="skip-link" href="#main" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to main</a>
-    <div class="container">
-        <header>
-                <div class="brand">
-                <div class="logo" aria-hidden>
-                    <img src="Images/1k fvr logo 4_000002_00000.png" alt="1k fvr logo" />
-                </div>
-                <div>
-                    <div style="font-weight:700">Andrew Rudman</div>
-                    <div style="font-size:0.85rem;color:var(--muted)">Video Editor & Music Producer · <span style="color:var(--accent)">@adjustors1k</span> <span class="badge-font" style="background:rgba(255,255,255,0.02);padding:4px 8px;border-radius:8px;color:var(--muted);font-size:0.78rem;margin-left:8px;vertical-align:middle">1k forever®</span></div>
-                </div>
-            </div>
-            
-        </header>
-
-        <main id="main">
-            <section class="hero">
-                <div class="card intro">
-                    <h1>Andrew Rudman</h1>
-                    <p>Andrew Rudman is a 20 year old video editor and music producer creating cinematic/visual edits and original music. He focuses on delivering high-quality audio and visuals.</p>
-                    <div class="meta">
-                        <div class="chip">Based in New Jersey</div>
-                        <div class="chip">Available for hire</div>
-                        <div class="chip">Commissioned work</div>
-                    </div>
-
-                    <div style="margin-top:18px">
-                        <h2 style="font-size:1.05rem;margin-bottom:10px">Featured Projects</h2>
-                        <div class="projects" id="projects">
-                            <article class="project" tabindex="0" aria-labelledby="p1" data-disabled="true">
-                                <div class="p-thumb">
-                                    <video width="1920" height="1080" autoplay muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;background:#000" aria-label="BKZ radio vol. 002 preview">
-                                        <source src="Videos/AQOr2rBUxGjGr8fdE8lvMEU0YVCM6h4R9lMBb8DqU5etrPTT0f5P868EeC7wyftFIdDSGrYLvWzMJlRM4RpjHjaLqFCIOMF223G-xy4.mp4" type="video/mp4">
-                                        Your browser does not support the video element.
-                                    </video>
-                                </div>
-                                <div>
-                                    <div class="p-title" id="p1"><a href="https://www.instagram.com/p/DHtaXhpxbOt/" target="_blank" rel="noopener noreferrer">BKZ radio vol. 002 (2025)</a></div>
-                                    <div class="tags">
-                                        <div class="tag">FL Studio</div>
-                                        <div class="tag">Music Production</div>
-                                    </div>
-                                    <div style="color:var(--muted);font-size:0.9rem;margin-top:6px">Song produced.</div>
-                                </div>
-                            </article>
-
-                            <article class="project" tabindex="0" aria-labelledby="p2" data-disabled="true">
-                                <div class="p-thumb">
-                                    <video width="1920" height="1080" autoplay muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;background:#000" aria-label="Personal Project preview">
-                                        <source src="Videos/got my back - montage.mp4" type="video/mp4">
-                                        Your browser does not support the video element.
-                                    </video>
-                                </div>
-                                <div>
-                                    <div class="p-title" id="p2">Cinematic Edit (2025)</div>
-                                    <div class="tags">
-                                        <div class="tag">After Effects</div>
-                                        <div class="tag">Video Editing</div>
-                                        <div class="tag">Music Production</div>
-                                        <div class="tag">FL Studio</div>
-                                    </div>
-                                    <div style="color:var(--muted);font-size:0.9rem;margin-top:6px">Clips edited and song produced.</div>
-                                </div>
-                            </article>
-
-                            <article class="project" tabindex="0" aria-labelledby="p3">
-                                <div class="p-thumb">
-                                    <video width="1920" height="1080" autoplay muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;background:#000" aria-label="Visual Edit preview">
-                                        <source src="Videos/4.%20playboi%20carti%20%26%20pierre%20bourne%20edit%20(1%20MIN%20LOOP).mp4" type="video/mp4">
-                                        Your browser does not support the video element.
-                                    </video>
-                                </div>
-                                <div>
-                                    <div class="p-title" id="p3">Visual Edit (2024)</div>
-                                    <div class="tags">
-                                        <div class="tag">After Effects</div>
-                                        <div class="tag">Visual Effects</div>
-                                        <div class="tag">Music Production</div>
-                                        <div class="tag">FL Studio</div>
-                                    </div>
-                                    <div style="color:var(--muted);font-size:0.9rem;margin-top:6px">Clips edited and song produced.</div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sidebar-col">
-                    <aside class="card aside-profile" aria-label="Profile">
-                        <div class="avatar">
-                            <img src="Images/IMG_0371.jpg" srcset="Images/IMG_0371.jpg 1080w" sizes="120px" decoding="async" alt="Andrew Rudman — profile photo" />
-                        </div>
-                        <div style="font-weight:700">Andrew Rudman</div>
-                        <div style="color:var(--muted);margin-top:6px">Video Editor & Music Producer</div>
-                        <div style="color:var(--muted);margin-top:6px">@adjustors1k · <span class="badge-font" style="background:rgba(255,255,255,0.02);padding:4px 8px;border-radius:8px;color:var(--muted);font-size:0.82rem;vertical-align:middle">1k forever®</span></div>
-
-                        <div class="cta">
-                            <a class="btn" href="#contact">Contact</a>
-                        </div>
-
-                        <div style="margin-top:12px;color:var(--muted);font-size:0.92rem">
-                            <div>Open to freelance & full‑time</div>
-                        </div>
-                    </aside>
-
-                    <!-- Linktree card under profile -->
-                    <div class="card linktree-card" style="text-align:center; padding:12px">
-                        <a class="btn ghost" href="https://linktr.ee/Adjustors_" target="_blank" rel="noopener noreferrer">my socials</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="shop" class="card" style="margin-bottom:18px">
-                <h2>Shop</h2>
-
-                <div class="projects" style="margin-top:12px">
-                    <article class="project" aria-labelledby="s1" data-title="adjustors1k essentials drum kit vol. 1" data-disabled="true">
-                        <div class="p-thumb placeholder">
-                            <img src="Images/Comp%201_00000.png" alt="adjustors1k essentials drum kit vol. 1 cover" style="width:100%;height:100%;object-fit:cover;display:block" />
-                        </div>
-                        <div>
-                            <div class="p-title" id="s1">adjustors1k essentials drum kit vol. 1</div>
-                            <div style="color:var(--muted);font-size:0.9rem;margin-top:6px">Coming soon</div>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <section class="card" style="margin-bottom:18px">
-                <h2 id="skills">Skills</h2>
-                <div class="grid-2" style="margin-top:12px">
-                    <div>
-                        <p style="margin:0 0 10px 0;color:var(--muted)">Tools used regularly.</p>
-                        <div class="skills-list">
-                            <div class="skill">Social Media</div>
-                            <div class="skill">FL Studio</div>
-                            <div class="skill">After Effects</div>
-                        </div>
-                    </div>
-
-                    <div style="align-self:start">
-                        <h3 style="margin:0 0 8px 0">Experience</h3>
-                        <div style="color:var(--muted);font-size:0.95rem">With over seven years of professional experience in video editing and music production, Andrew specializes in creating high-quality social media content and tailored audio-visual projects for platforms including TikTok, YouTube, and SoundCloud.</div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact" class="card">
-                <h2>Contact</h2>
-                <p style="color:var(--muted);margin-top:6px">Interested in working together? Send a message — or email directly.</p>
-
-                <form id="contactForm" style="margin-top:12px;display:grid;gap:10px;max-width:680px">
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-                        <input name="name" placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" />
-                        <input type="email" name="email" placeholder="Email" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" />
-                    </div>
-                    <input name="subject" placeholder="Subject" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" />
-                    <textarea name="message" placeholder="Message" rows="6" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit"></textarea>
-
-                    <div style="display:flex;gap:10px;align-items:center">
-                        <button type="submit" class="btn">Send message</button>
-                        <div style="color:var(--muted);font-size:0.95rem">Or email: <a href="mailto:adjustors2900@gmail.com">adjustors2900@gmail.com</a></div>
-                    </div>
-                </form>
-            </section>
-
-            <footer>
-                <div><span class="badge-font">1k forever®</span> 2025</div>
-            </footer>
-        </main>
-    </div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function(){
-    // Fill current year if a year element exists (guarded to avoid errors after footer customization)
-    const yearEl = document.getElementById('year');
-    if(yearEl) yearEl.textContent = new Date().getFullYear();
-
-        // Theme toggle removed from UI; guard in case JS still references it elsewhere
-        const themeBtn = document.getElementById('themeToggle');
-        if(themeBtn){
-            themeBtn.addEventListener('click', () => {
-                // Toggle between black/white default and an inverted (light) variant
-                const current = document.documentElement.style.getPropertyValue('--bg') || getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
-                if(current === '#000000' || current === '#000'){
-                    // switch to light (white background, dark text)
-                    document.documentElement.style.setProperty('--bg','#ffffff');
-                    document.documentElement.style.setProperty('--card','#ffffff');
-                    document.documentElement.style.setProperty('--muted','#4b5563');
-                    document.documentElement.style.setProperty('--accent','#000000');
-                    document.documentElement.style.setProperty('--glass','rgba(0,0,0,0.04)');
-                    document.body.style.color = '#000000';
-                } else {
-                    // switch back to black & white theme
-                    document.documentElement.style.setProperty('--bg','#000000');
-                    document.documentElement.style.setProperty('--card','#0b0b0b');
-                    document.documentElement.style.setProperty('--muted','#bfbfbf');
-                    document.documentElement.style.setProperty('--accent','#ffffff');
-                    document.documentElement.style.setProperty('--glass','rgba(255,255,255,0.03)');
-                    document.body.style.color = '#ffffff';
-                }
-            });
-        }
-
-        // Smooth scroll with offset for same-page anchors to avoid overscrolling
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', (e) => {
-                const href = a.getAttribute('href');
-                if(!href || href === '#') return;
-                const target = document.querySelector(href);
-                if(target){
-                    // Only adjust scroll for on-page anchors (prevent default jump)
-                    e.preventDefault();
-                    const offset = 28; // px to offset upward
-                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-                    window.scrollTo({ top: top, behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Simple contact form handler: opens mail client as fallback
-        document.getElementById('contactForm').addEventListener('submit', function(e){
-            e.preventDefault();
-            const f = e.target;
-            const name = encodeURIComponent(f.name.value.trim());
-            const email = encodeURIComponent(f.email.value.trim());
-            const subject = encodeURIComponent(f.subject.value.trim() || 'Contact from portfolio');
-            const body = encodeURIComponent(f.message.value.trim() + "\n\n— " + (f.name.value.trim() || ''));
-            const mailto = `mailto:adjustors2900@gmail.com?subject=${subject}&body=${body}%0A%0AFrom:%20${name}%20<${email}>`;
-            window.location.href = mailto;
-        });
-
-        // Allow keyboard focus styles for project cards
-        document.querySelectorAll('.project').forEach(p=>{
-            p.addEventListener('keydown', e=>{
-                if(e.key === 'Enter' || e.key === ' ') {
-                    // don't trigger for disabled projects
-                    if(p.getAttribute('data-disabled') === 'true') return;
-                    p.click();
-                }
-            });
-            p.addEventListener('click', ()=>{
-                // ignore clicks for disabled projects
-                if(p.getAttribute('data-disabled') === 'true') return;
-                // open product modal with details from data attributes
-                const title = p.getAttribute('data-title');
-                const price = p.getAttribute('data-price');
-                const desc = p.getAttribute('data-desc');
-                const audio = p.getAttribute('data-audio');
-                const paylink = p.getAttribute('data-paylink');
-                openProductModal({title,price,desc,audio,paylink});
-            });
-        });
-
-        // Modal logic
-        function openProductModal({title,price,desc,audio,paylink}){
-            const modal = document.getElementById('productModal');
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalDesc').textContent = desc;
-            document.getElementById('modalPrice').textContent = '$' + price;
-            const audioEl = document.getElementById('modalAudio');
-            audioEl.querySelector('source').src = audio || '';
-            audioEl.load();
-            const buy = document.getElementById('modalBuy');
-            buy.href = paylink || '#';
-            modal.classList.add('open');
-            // focus for accessibility
-            buy.focus();
-        }
-
-        document.getElementById('modalClose').addEventListener('click', ()=>{
-            document.getElementById('productModal').classList.remove('open');
-            // stop any audio
-            const audioEl = document.getElementById('modalAudio');
-            audioEl.pause && audioEl.pause();
-        });
-
-        // Ensure modal closes when user clicks the Buy button (before navigation)
-        const modalBuyBtn = document.getElementById('modalBuy');
-        modalBuyBtn.addEventListener('click', ()=>{
-            // close modal and stop audio so the page isn't blocked after PayPal opens
-            document.getElementById('productModal').classList.remove('open');
-            const audioEl = document.getElementById('modalAudio');
-            audioEl.pause && audioEl.pause();
-        });
-        document.getElementById('productModal').addEventListener('click', (e)=>{
-            if(e.target === e.currentTarget){
-                document.getElementById('productModal').classList.remove('open');
-                const audioEl = document.getElementById('modalAudio');
-                audioEl.pause && audioEl.pause();
-            }
-        });
-        document.addEventListener('keydown', (e)=>{
-            if(e.key === 'Escape') document.getElementById('productModal').classList.remove('open');
-        });
-
-        // Resume autoplaying thumbnail videos after exiting fullscreen
-        function resumeThumbnailsAfterExit(){
-            const vids = document.querySelectorAll('.p-thumb video');
-            vids.forEach(v => {
-                try{
-                    if(v.autoplay && v.paused){
-                        v.play().catch(()=>{});
-                    }
-                }catch(_){}
-            });
-        }
-
-        // Listen for fullscreen change (with vendor-prefixed fallbacks)
-        ['fullscreenchange','webkitfullscreenchange','mozfullscreenchange','MSFullscreenChange'].forEach(evt => {
-            document.addEventListener(evt, ()=>{
-                const fs = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
-                if(!fs){
-                    resumeThumbnailsAfterExit();
-                }
-            });
-        });
-
-        // When leaving Picture-in-Picture, some browsers pause the original video element.
-        // Listen for the leavepictureinpicture event and resume playback on the thumbnail.
-        // Also add a custom mute/unmute overlay button that toggles muted without pausing.
-        document.querySelectorAll('.p-thumb video').forEach(v => {
-            v.addEventListener('leavepictureinpicture', () => {
-                try{
-                    if(v.paused){
-                        v.play().catch(()=>{});
-                    }
-                }catch(_){ }
-            });
-            // Safari older prefixed event fallback
-            v.addEventListener('webkitpresentationmodechanged', () => {
-                try{
-                    // webkitPresentationMode === 'inline' indicates exiting PiP
-                    if(v.webkitPresentationMode && v.webkitPresentationMode === 'inline' && v.paused){
-                        v.play().catch(()=>{});
-                    }
-                }catch(_){ }
-            });
-
-            // Create a small mute/unmute overlay button so users can toggle sound without pausing.
-            try{
-                const thumb = v.closest('.p-thumb');
-                if(thumb){
-                    const btn = document.createElement('button');
-                    btn.className = 'mute-toggle';
-                    btn.type = 'button';
-                    btn.setAttribute('aria-pressed', v.muted ? 'true' : 'false');
-                    btn.title = v.muted ? 'Unmute' : 'Mute';
-                    btn.textContent = v.muted ? '🔇' : '🔊';
-                    // Prevent the button click from bubbling to parent handlers
-                    btn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        // Toggle muted state. Because this is a direct user gesture, calling play()
-                        // after unmuting should be allowed by browsers that require a gesture.
-                        v.muted = !v.muted;
-                        btn.textContent = v.muted ? '🔇' : '🔊';
-                        btn.setAttribute('aria-pressed', v.muted ? 'true' : 'false');
-                        btn.title = v.muted ? 'Unmute' : 'Mute';
-                        if(!v.muted){
-                            // attempt to resume if unmuting; user gesture should permit playback
-                            v.play().catch(()=>{});
-                        }
-                    });
-                    // Keep the button state in sync if volume/muted changes programmatically
-                    v.addEventListener('volumechange', () => {
-                        btn.textContent = v.muted ? '🔇' : '🔊';
-                        btn.setAttribute('aria-pressed', v.muted ? 'true' : 'false');
-                        btn.title = v.muted ? 'Unmute' : 'Mute';
-                    });
-                    thumb.appendChild(btn);
-                }
-            }catch(_){ }
-        });
-    });
-    </script>
-
-    <!-- Product modal (hidden by default) -->
-    <div id="productModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
-        <div class="modal-content" role="document">
-            <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
-            <h3 id="modalTitle" class="modal-title">Product</h3>
-            <div class="modal-body">
-                <div>
-                    <p id="modalDesc" style="color:var(--muted)">Product description</p>
-                    <div style="margin-top:12px">
-                        <audio id="modalAudio" class="modal-audio" controls preload="none">
-                            <source src="" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                </div>
-
-                <aside style="align-self:start">
-                    <div style="font-weight:700;margin-bottom:6px">Price</div>
-                    <div id="modalPrice" style="font-size:1.2rem;font-weight:700">$0</div>
-                    <div style="margin-top:12px">
-                        <a id="modalBuy" class="btn" href="#" target="_blank" rel="noopener">Buy</a>
-                    </div>
-                </aside>
-            </div>
-        </div>
+    <div class="buttons">
+        <a class="btn" href="about.html">About Me</a>
+        <a class="btn" href="shop.html">Shop</a>
+        <a class="btn" href="contact.html">Contact</a>
     </div>
 </body>
 </html>

@@ -1,0 +1,1613 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shop — 1kfvr</title>
+  <meta name="description" content="Shop products by Andrew Rudman (adjustors1k)." />
+  <link rel="icon" type="image/png" href="Images/1k fvr logo 4_000002_00000.png" />
+  <link rel="apple-touch-icon" href="Images/1k fvr logo 4_000002_00000.png" />
+  <style>
+    :root{--bg:#000;--card:#0b0b0b;--muted:#bfbfbf;--accent:#fff;--glass:rgba(255,255,255,0.03);--radius:12px;--gap:18px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color-scheme:dark}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased;line-height:1.45;padding:28px}
+    a{color:var(--accent);text-decoration:none}
+  .container{max-width:1200px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;background:var(--accent);display:grid;place-items:center}
+    .logo img{width:100%;height:100%;object-fit:contain;border-radius:8px;display:block}
+    nav{display:flex;gap:10px;align-items:center}
+    .nav-link{font-size:0.95rem;color:var(--muted);padding:8px 10px;border-radius:8px}
+    .nav-link:hover{background:var(--glass);color:#fff}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:var(--radius);padding:20px;box-shadow:0 6px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+  .projects{display:flex;justify-content:center;gap:var(--gap);flex-wrap:wrap}
+    .project{position:relative;overflow:hidden;max-width:280px;min-height:320px;border-radius:14px;background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;display:flex;flex-direction:column;align-items:center;gap:12px;transition:all 1s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(255,255,255,0.03);box-shadow:0 4px 12px rgba(255,255,255,0.1)}
+    .project:hover{transform:translateY(-12px) scale(1.1);box-shadow:0 12px 30px rgba(255,255,255,0.25), 0 0 20px rgba(255,255,255,0.15), inset 0 0 10px rgba(255,255,255,0.1);filter:brightness(1.15)}
+    .p-thumb.placeholder{width:180px;height:180px;border-radius:10px;background:#111;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+    .p-title{text-align:center;margin:0}
+    .project > div{display:flex;flex-direction:column;gap:6px;align-items:center}
+    .p-title{font-weight:700}
+    
+  /* Beats grid: smaller cards and clear separation */
+  .beats-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(520px, 1fr));gap:var(--gap)}
+  .project.beat{max-width:none;min-height:150px;padding:14px;align-items:stretch}
+  .project.beat:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 8px 20px rgba(255,255,255,0.2), 0 0 15px rgba(255,255,255,0.1);filter:brightness(1.1)}
+  .project.beat audio{max-width:none;width:100%;height:46px;margin-top:4px}
+  .project.beat > div{width:100%;align-items:stretch}
+  .project.beat .p-title{text-align:left}
+  
+  /* Drum kit card wider / shorter */
+  .project.kit{max-width:420px;min-height:340px;margin-top:20px}
+  .project.kit .p-thumb.placeholder{width:170px;height:170px}
+  .project.kit .p-title{max-width:280px}
+    
+  audio{width:100%;max-width:240px;height:32px;border-radius:8px;margin-top:8px}
+    audio::-webkit-media-controls-panel{background:rgba(255,255,255,0.05);border-radius:8px}
+    
+    .buy-btn{display:inline-block;background:var(--accent);color:#000;padding:10px 24px;border-radius:8px;font-weight:600;text-align:center;text-decoration:none;transition:all 0.3s ease;margin-top:12px;font-size:0.95rem}
+    .buy-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,255,255,0.3)}
+
+    /* Small action buttons (plus + favorite) */
+  .actions{display:flex;align-items:center;gap:10px;margin-top:8px}
+    .icon-btn{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#000;text-decoration:none;border:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+    .icon-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(255,255,255,0.25);filter:brightness(1.08)}
+    .icon-btn svg{width:18px;height:18px;display:block}
+    .icon-btn.star{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.18)}
+    .icon-btn.star.active{background:#ffd54a;color:#2b2100;border-color:#ffd54a}
+
+    /* Custom preview row with thick progress bar */
+    .preview-row{display:flex;align-items:center;gap:14px;width:100%;margin-top:8px}
+    .play-btn{width:40px;height:40px;border-radius:50%;display:inline-grid;place-items:center;background:var(--accent);color:#000;border:none;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease}
+    .play-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(255,255,255,0.25)}
+    .play-btn svg{width:16px;height:16px}
+  .progress{flex:1;min-width:240px;height:6px;background:rgba(255,255,255,0.2);border-radius:4px;overflow:hidden;position:relative;cursor:pointer}
+  .progress .fill{position:absolute;left:0;top:0;height:100%;width:0%;background:#fff;transition:width .1s linear}
+  .time-display{font-size:0.8rem;color:var(--muted);min-width:42px;text-align:center;font-variant-numeric:tabular-nums}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>
+          <img src="Images/1k fvr logo 4_000002_00000.png" alt="1k fvr logo" />
+        </div>
+        <div>
+          <div style="font-weight:700">Andrew Rudman</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Video Editor & Music Producer · <span style="color:var(--accent)">@adjustors1k</span></div>
+        </div>
+      </div>
+      <nav>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="shop.html">Shop</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1 style="margin:0 0 22px 0">Shop</h1>
+      <!-- Drum Kits Card -->
+      <section class="card" aria-labelledby="dk-heading">
+        <h2 id="dk-heading" style="margin:0 0 16px 0;font-size:1.5rem">Drum Kits</h2>
+        <div class="projects" style="margin-top:12px;justify-content:flex-start">
+          <article class="project kit" aria-labelledby="s1" data-title="adjustors1k essentials drum kit vol. 1">
+            <div class="p-thumb placeholder">
+              <img src="Images/Comp%201_00000.png" alt="adjustors1k essentials drum kit vol. 1 cover" style="width:100%;height:100%;object-fit:cover;display:block" />
+            </div>
+            <div>
+              <div class="p-title" id="s1" style="margin-top:12px">adjustors1k essentials<br>drum kit vol. 1</div>
+              <div style="color:var(--muted);font-size:0.85rem;margin-top:8px">Coming Soon</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Beats Card -->
+      <section class="card" aria-labelledby="beats-heading" style="margin-top:24px">
+        <h2 id="beats-heading" style="margin:0 0 16px 0;font-size:1.5rem">Beats</h2>
+        <div class="beats-grid" style="margin-top:12px">
+          <article class="project beat" aria-labelledby="b1" data-title="it ends here">
+            <div>
+              <div class="p-title" id="b1">it ends here</div>
+              <div style="color:var(--muted);font-size:0.85rem">166bpm · G#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/it%20ends%20here%20166bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/7EreY" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="it-ends-here">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b2" data-title="red">
+            <div>
+              <div class="p-title" id="b2">red</div>
+              <div style="color:var(--muted);font-size:0.85rem">143bpm · G#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/red%20143bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/2Aj6p" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="red">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b3" data-title="whacked">
+            <div>
+              <div class="p-title" id="b3">whacked</div>
+              <div style="color:var(--muted);font-size:0.85rem">150bpm · D#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/whacked%20150bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/7EreY" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="whacked">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b4" data-title="multi">
+            <div>
+              <div class="p-title" id="b4">multi</div>
+              <div style="color:var(--muted);font-size:0.85rem">160bpm · Dmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/multi%20160bpm%20Dmin%20%40adjustors1k%20%40adjustors1k%20(ArtistConnect).mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/yQMPE" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="multi">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b5" data-title="pitstop">
+            <div>
+              <div class="p-title" id="b5">pitstop</div>
+              <div style="color:var(--muted);font-size:0.85rem">161bpm · A#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/pitstop%20161bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/fjPVL" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="pitstop">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b6" data-title="hijacked">
+            <div>
+              <div class="p-title" id="b6">hijacked</div>
+              <div style="color:var(--muted);font-size:0.85rem">170bpm · D#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/hijacked%20170bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/hcLQK" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="hijacked">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b7" data-title="ninja">
+            <div>
+              <div class="p-title" id="b7">ninja</div>
+              <div style="color:var(--muted);font-size:0.85rem">160bpm · A#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/ninja%20160bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/vmczw" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="ninja">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b8" data-title="ok bit">
+            <div>
+              <div class="p-title" id="b8">ok bit</div>
+              <div style="color:var(--muted);font-size:0.85rem">146bpm · Fmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/ok%20bit%20146bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/LgSGC" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="ok-bit">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b9" data-title="on time">
+            <div>
+              <div class="p-title" id="b9">on time</div>
+              <div style="color:var(--muted);font-size:0.85rem">158bpm · D#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/on%20time%20158bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/k6fs7" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="on-time">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b10" data-title="revenge">
+            <div>
+              <div class="p-title" id="b10">revenge</div>
+              <div style="color:var(--muted);font-size:0.85rem">156bpm · G#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/revenge%20156bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/lV6B0" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="revenge">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b11" data-title="team">
+            <div>
+              <div class="p-title" id="b11">team</div>
+              <div style="color:var(--muted);font-size:0.85rem">142bpm · Bmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/team%20142bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/K3OkT" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="team">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b12" data-title="weapon">
+            <div>
+              <div class="p-title" id="b12">weapon</div>
+              <div style="color:var(--muted);font-size:0.85rem">160bpm · A#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/weapon%20160bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/3dgWc" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="weapon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b13" data-title="workingonliving">
+            <div>
+              <div class="p-title" id="b13">workingonliving</div>
+              <div style="color:var(--muted);font-size:0.85rem">160bpm · Fmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/workingonliving%20160bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/QNgCE" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="workingonliving">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b14" data-title="dash">
+            <div>
+              <div class="p-title" id="b14">dash</div>
+              <div style="color:var(--muted);font-size:0.85rem">147bpm · Bmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/dash%20147bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/VcHLS" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="dash">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b15" data-title="departure">
+            <div>
+              <div class="p-title" id="b15">departure</div>
+              <div style="color:var(--muted);font-size:0.85rem">160bpm · Gmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/departure%20160bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/LI73x" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="departure">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b16" data-title="howdoyoufeel">
+            <div>
+              <div class="p-title" id="b16">howdoyoufeel</div>
+              <div style="color:var(--muted);font-size:0.85rem">150bpm · Fmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/howdoyoufeel%20150bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/X7CnI" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="howdoyoufeel">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b17" data-title="tomandjerry">
+            <div>
+              <div class="p-title" id="b17">tomandjerry</div>
+              <div style="color:var(--muted);font-size:0.85rem">147bpm · Gmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/tomandjerry%20147bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/0A34u" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="tomandjerry">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b18" data-title="demonstrate">
+            <div>
+              <div class="p-title" id="b18">demonstrate</div>
+              <div style="color:var(--muted);font-size:0.85rem">168bpm · Bmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/demonstrate%20168bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/Uv0Fj" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="demonstrate">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b19" data-title="devotion">
+            <div>
+              <div class="p-title" id="b19">devotion</div>
+              <div style="color:var(--muted);font-size:0.85rem">160bpm · Dmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/devotion%20160bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/7BwZp" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="devotion">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b20" data-title="lies">
+            <div>
+              <div class="p-title" id="b20">lies</div>
+              <div style="color:var(--muted);font-size:0.85rem">150bpm · G#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/lies%20150bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/DxBKv" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="lies">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b21" data-title="mercy">
+            <div>
+              <div class="p-title" id="b21">mercy</div>
+              <div style="color:var(--muted);font-size:0.85rem">157bpm · D#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/mercy%20157bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/sATxv" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="mercy">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b22" data-title="shark">
+            <div>
+              <div class="p-title" id="b22">shark</div>
+              <div style="color:var(--muted);font-size:0.85rem">150bpm · C#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/shark%20150bpm%20C%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/KjfoM" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="shark">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b23" data-title="calling">
+            <div>
+              <div class="p-title" id="b23">calling</div>
+              <div style="color:var(--muted);font-size:0.85rem">163bpm · Emin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/calling%20163bpm%20Emin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/1dMVm" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="calling">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b24" data-title="constellations">
+            <div>
+              <div class="p-title" id="b24">constellations</div>
+              <div style="color:var(--muted);font-size:0.85rem">157bpm · Dmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/constellations%20157bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/EtGub" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="constellations">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b25" data-title="found em">
+            <div>
+              <div class="p-title" id="b25">found em</div>
+              <div style="color:var(--muted);font-size:0.85rem">161bpm · D#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/found%20em%20161bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/kxyQI" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="found-em">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b26" data-title="otto">
+            <div>
+              <div class="p-title" id="b26">otto</div>
+              <div style="color:var(--muted);font-size:0.85rem">161bpm · Cmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/otto%20161bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/jkrQt" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="otto">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b27" data-title="karma">
+            <div>
+              <div class="p-title" id="b27">karma</div>
+              <div style="color:var(--muted);font-size:0.85rem">163bpm · C#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/karma%20163bpm%20C%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/Xixmh" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="karma">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b28" data-title="keltec">
+            <div>
+              <div class="p-title" id="b28">keltec</div>
+              <div style="color:var(--muted);font-size:0.85rem">166bpm · A#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/keltec%20166bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/I1C7P" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="keltec">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b29" data-title="selfcare">
+            <div>
+              <div class="p-title" id="b29">selfcare</div>
+              <div style="color:var(--muted);font-size:0.85rem">158bpm · Dmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/selfcare%20158bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/YiSeG" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="selfcare">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b30" data-title="tokyo">
+            <div>
+              <div class="p-title" id="b30">tokyo</div>
+              <div style="color:var(--muted);font-size:0.85rem">157bpm · G#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/tokyo%20157bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/HptFk" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="tokyo">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b31" data-title="cuba">
+            <div>
+              <div class="p-title" id="b31">cuba</div>
+              <div style="color:var(--muted);font-size:0.85rem">156bpm · Cmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/cuba%20156bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/PdhF5" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="cuba">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b32" data-title="pop tarts">
+            <div>
+              <div class="p-title" id="b32">pop tarts</div>
+              <div style="color:var(--muted);font-size:0.85rem">160bpm · A#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/pop%20tarts%20160bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/un3Ui" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="pop tarts">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b33" data-title="crunch time">
+            <div>
+              <div class="p-title" id="b33">crunch time</div>
+              <div style="color:var(--muted);font-size:0.85rem">165bpm · G#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/crunch%20time%20165bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/29mRM" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="crunch time">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b34" data-title="bridges">
+            <div>
+              <div class="p-title" id="b34">bridges</div>
+              <div style="color:var(--muted);font-size:0.85rem">151bpm · F#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/bridges%20151bpm%20F%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/WS9xJ" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="bridges">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b35" data-title="can never change up">
+            <div>
+              <div class="p-title" id="b35">can never change up</div>
+              <div style="color:var(--muted);font-size:0.85rem">152bpm · G#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/can%20never%20change%20up%20152bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/16TuU" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="can never change up">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b36" data-title="colors">
+            <div>
+              <div class="p-title" id="b36">colors</div>
+              <div style="color:var(--muted);font-size:0.85rem">166bpm · Gmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/colors%20166bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/MKh0P" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="colors">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b37" data-title="last place">
+            <div>
+              <div class="p-title" id="b37">last place</div>
+              <div style="color:var(--muted);font-size:0.85rem">156bpm · Gmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/last%20place%20156bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/7gmEF" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="last place">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b38" data-title="prayer">
+            <div>
+              <div class="p-title" id="b38">prayer</div>
+              <div style="color:var(--muted);font-size:0.85rem">155bpm · Bmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/prayer%20155bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/hryku" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="prayer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b39" data-title="recovery">
+            <div>
+              <div class="p-title" id="b39">recovery</div>
+              <div style="color:var(--muted);font-size:0.85rem">154bpm · Fmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/recovery%20154bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/nhA26" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="recovery">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b40" data-title="pingpong">
+            <div>
+              <div class="p-title" id="b40">pingpong</div>
+              <div style="color:var(--muted);font-size:0.85rem">140bpm · Emin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/pingpong%20140bpm%20Emin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/w2qJk" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="pingpong">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b41" data-title="invaders">
+            <div>
+              <div class="p-title" id="b41">invaders</div>
+              <div style="color:var(--muted);font-size:0.85rem">161bpm · Fmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/invaders%20161bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/I4pbl" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="invaders">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b42" data-title="options">
+            <div>
+              <div class="p-title" id="b42">options</div>
+              <div style="color:var(--muted);font-size:0.85rem">136bpm · Emin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/options%20136bpm%20Emin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/dtG0r" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="options">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b43" data-title="back">
+            <div>
+              <div class="p-title" id="b43">back</div>
+              <div style="color:var(--muted);font-size:0.85rem">155bpm · G#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/back%20155bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/7rIby" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="back">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b44" data-title="fly">
+            <div>
+              <div class="p-title" id="b44">fly</div>
+              <div style="color:var(--muted);font-size:0.85rem">156bpm · G#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/fly%20156bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/f5qdN" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="fly">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b45" data-title="harp">
+            <div>
+              <div class="p-title" id="b45">harp</div>
+              <div style="color:var(--muted);font-size:0.85rem">145bpm · C#min</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/harp%20145bpm%20C%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/bziYt" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="harp">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b46" data-title="maaly">
+            <div>
+              <div class="p-title" id="b46">maaly</div>
+              <div style="color:var(--muted);font-size:0.85rem">160bpm · Bmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/maaly%20160bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/ADZWt" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="maaly">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b47" data-title="no">
+            <div>
+              <div class="p-title" id="b47">no</div>
+              <div style="color:var(--muted);font-size:0.85rem">140bpm · Fmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/no%20140bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/fLC0m" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="no">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project beat" aria-labelledby="b48" data-title="scared">
+            <div>
+              <div class="p-title" id="b48">scared</div>
+              <div style="color:var(--muted);font-size:0.85rem">154bpm · Dmin</div>
+              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
+              <div class="preview-row" data-audio-src="Audio/scared%20154bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/VSl9w" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="scared">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer style="margin-top:30px;text-align:center;color:var(--muted);font-size:0.9rem">
+      <div><span class="badge-font">1k forever®</span> 2025</div>
+    </footer>
+  </div>
+  
+  <script>
+    // Custom preview player logic
+    const previewRows = Array.from(document.querySelectorAll('.preview-row'));
+    let activeAudio = null;
+    previewRows.forEach(row => {
+      const src = row.dataset.audioSrc;
+      const limit = parseFloat(row.dataset.durationLimit) || 30;
+      const playBtn = row.querySelector('.play-btn');
+      const progress = row.querySelector('.progress');
+      const fill = row.querySelector('.fill');
+      const timeDisplay = row.querySelector('.time-display');
+      let audio = new Audio(src);
+      audio.preload = 'metadata';
+      
+      const formatTime = (sec) => {
+        const m = Math.floor(sec / 60);
+        const s = Math.floor(sec % 60);
+        return `${m}:${s.toString().padStart(2,'0')}`;
+      };
+      
+      const updateTime = () => {
+        const current = Math.min(audio.currentTime, limit);
+        timeDisplay.textContent = formatTime(current);
+      };
+      
+      const reset = () => { 
+        audio.currentTime = 0; 
+        audio.pause(); 
+        fill.style.width='0%'; 
+        timeDisplay.textContent = '0:00';
+        playBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'; 
+        playBtn.setAttribute('aria-label','Play preview'); 
+        progress.setAttribute('aria-valuenow','0'); 
+      };
+      
+      playBtn.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playBtn.click(); } });
+      playBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          if (activeAudio && activeAudio !== audio) { activeAudio.pause(); }
+          audio.play();
+          activeAudio = audio;
+          playBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>';
+          playBtn.setAttribute('aria-label','Pause preview');
+        } else {
+          audio.pause();
+          playBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+          playBtn.setAttribute('aria-label','Play preview');
+        }
+      });
+      
+      audio.addEventListener('timeupdate', () => {
+        if (audio.currentTime >= limit) { reset(); }
+        const pct = (audio.currentTime / limit) * 100;
+        fill.style.width = Math.min(pct,100) + '%';
+        progress.setAttribute('aria-valuenow', String(Math.floor(audio.currentTime)));
+        updateTime();
+      });
+      
+      audio.addEventListener('ended', reset);
+      
+      // Click on progress bar to seek
+      progress.addEventListener('click', (e) => {
+        const rect = progress.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const seekPct = clickX / rect.width;
+        const seekTime = seekPct * limit;
+        audio.currentTime = Math.max(0, Math.min(seekTime, limit));
+        const pct = (audio.currentTime / limit) * 100;
+        fill.style.width = Math.min(pct,100) + '%';
+        updateTime();
+      });
+      
+      // Keyboard navigation for progress bar
+      progress.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          audio.currentTime = Math.max(0, audio.currentTime - 2);
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          audio.currentTime = Math.min(limit, audio.currentTime + 2);
+        }
+        updateTime();
+      });
+    });    // Favorites: toggle star and persist to localStorage
+  const favButtons = Array.from(document.querySelectorAll('.icon-btn.star[data-fav-id]'));
+    favButtons.forEach(btn => {
+      const id = btn.dataset.favId;
+      const key = `fav:${id}`;
+      const active = localStorage.getItem(key) === '1';
+      if (active) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed','true');
+      }
+      btn.addEventListener('click', () => {
+        const isActive = btn.classList.toggle('active');
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        localStorage.setItem(key, isActive ? '1' : '0');
+      });
+    });
+  </script>
+</body>
+</html>
