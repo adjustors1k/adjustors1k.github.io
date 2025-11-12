@@ -7,6 +7,18 @@
     <meta name="description" content="Portfolio of Andrew Rudman  video editor & music producer." />
     <link rel="icon" type="image/png" href="Images/1k fvr logo 4_000002_00000.png" />
     <link rel="apple-touch-icon" href="Images/1k fvr logo 4_000002_00000.png" />
+        <script>
+            // Redirect root or /index.html to /home on web (not when opened via file://)
+            (function(){
+                try {
+                    var p = window.location.pathname;
+                    var isWeb = window.location.protocol !== 'file:';
+                    if (isWeb && (p === '/' || p.endsWith('/index.html'))) {
+                        window.location.replace('/home');
+                    }
+                } catch (e) { /* no-op */ }
+            })();
+        </script>
     <style>
         :root{
             --bg:#000000;
@@ -78,7 +90,8 @@
 <body>
     <div class="buttons">
         <a class="btn" href="about.html">About Me</a>
-        <a class="btn" href="/shop">Shop</a>
+        <a class="btn" href="shop.html">Shop</a>
+        <a class="btn" href="https://linktr.ee/Adjustors_" target="_blank" rel="noopener">Socials</a>
         <a class="btn" href="contact.html">Contact</a>
     </div>
 </body>
