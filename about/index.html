@@ -219,6 +219,35 @@
         }
       });
     });
+
+    // Ensure videos keep playing and don't pause randomly
+    document.querySelectorAll('video').forEach(video => {
+      // Force autoplay when video is ready
+      video.addEventListener('loadeddata', () => {
+        video.play().catch(e => console.log('Autoplay prevented:', e));
+      });
+
+      // If video pauses unexpectedly, restart it
+      video.addEventListener('pause', (e) => {
+        // Only restart if not paused by user interaction (mute toggle)
+        if (!e.target.hasAttribute('data-user-paused')) {
+          setTimeout(() => {
+            video.play().catch(e => console.log('Resume prevented:', e));
+          }, 100);
+        }
+      });
+
+      // Prevent random interruptions
+      video.addEventListener('suspend', () => {
+        video.play().catch(e => console.log('Resume after suspend prevented:', e));
+      });
+
+      // Keep looping smooth
+      video.addEventListener('ended', () => {
+        video.currentTime = 0;
+        video.play().catch(e => console.log('Loop prevented:', e));
+      });
+    });
   </script>
 </body>
 </html>
