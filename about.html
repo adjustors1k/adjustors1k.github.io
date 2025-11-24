@@ -31,11 +31,13 @@
     .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--gap);margin-top:8px}
     .project{position:relative;overflow:hidden;min-height:140px;border-radius:14px;background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:14px;display:flex;flex-direction:column;justify-content:flex-start;transition:transform .25s ease,box-shadow .25s ease;border:1px solid rgba(255,255,255,0.03)}
     .project:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(2,6,23,0.55)}
-    .p-thumb{aspect-ratio:16/9;height:auto;max-height:160px;border-radius:10px;background:#111;display:block;overflow:hidden;color:var(--muted);font-weight:700;position:relative}
+    .p-thumb{aspect-ratio:16/9;width:100%;height:auto;border-radius:10px;background:#111;display:block;overflow:hidden;color:var(--muted);font-weight:700;position:relative}
+    .p-thumb video{width:100%;height:100%;object-fit:contain;display:block}
     .p-title{font-weight:700}
     .tags{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
     .tag{font-size:0.75rem;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)}
-    .mute-toggle{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.45);border:1px solid rgba(255,255,255,0.06);color:var(--accent);padding:6px 8px;border-radius:8px;font-size:0.95rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+    .mute-toggle{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.15);color:var(--accent);padding:6px 10px;border-radius:8px;font-size:0.85rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);transition:all 0.2s ease}
+    .mute-toggle:hover{background:rgba(0,0,0,0.85);border-color:rgba(255,255,255,0.3)}
     .mute-toggle:focus{outline:2px solid rgba(125,211,252,0.18)}
   </style>
 </head>
@@ -71,10 +73,11 @@
         <div class="projects">
           <article class="project" tabindex="0" aria-labelledby="p1">
             <div class="p-thumb">
-              <video width="1920" height="1080" autoplay muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;background:#000" aria-label="BKZ radio vol. 002 preview">
+              <video width="1920" height="1080" autoplay muted loop playsinline preload="auto" aria-label="BKZ radio vol. 002 preview" data-video-id="v1">
                 <source src="Videos/AQOr2rBUxGjGr8fdE8lvMEU0YVCM6h4R9lMBb8DqU5etrPTT0f5P868EeC7wyftFIdDSGrYLvWzMJlRM4RpjHjaLqFCIOMF223G-xy4.mp4" type="video/mp4">
                 Your browser does not support the video element.
               </video>
+              <button class="mute-toggle" data-target="v1" aria-label="Unmute video">🔇 Unmute</button>
             </div>
             <div>
               <div class="p-title" id="p1"><a href="https://www.instagram.com/p/DHtaXhpxbOt/" target="_blank" rel="noopener noreferrer">BKZ radio vol. 002 (2025)</a></div>
@@ -85,13 +88,19 @@
               <div style="color:var(--muted);font-size:0.9rem;margin-top:6px">Song produced.</div>
             </div>
           </article>
+        </div>
+      </section>
 
+      <section class="card" style="margin-top:18px">
+        <h2>Personal Projects</h2>
+        <div class="projects">
           <article class="project" tabindex="0" aria-labelledby="p2">
             <div class="p-thumb">
-              <video width="1920" height="1080" autoplay muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;background:#000" aria-label="Personal Project preview">
+              <video width="1920" height="1080" autoplay muted loop playsinline preload="auto" aria-label="Personal Project preview" data-video-id="v2">
                 <source src="Videos/got my back - montage.mp4" type="video/mp4">
                 Your browser does not support the video element.
               </video>
+              <button class="mute-toggle" data-target="v2" aria-label="Unmute video">🔇 Unmute</button>
             </div>
             <div>
               <div class="p-title" id="p2">Cinematic Edit (2025)</div>
@@ -107,10 +116,11 @@
 
           <article class="project" tabindex="0" aria-labelledby="p3">
             <div class="p-thumb">
-              <video width="1920" height="1080" autoplay muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;background:#000" aria-label="Visual Edit preview">
+              <video width="1920" height="1080" autoplay muted loop playsinline preload="auto" aria-label="Visual Edit preview" data-video-id="v3">
                 <source src="Videos/4.%20playboi%20carti%20%26%20pierre%20bourne%20edit%20(1%20MIN%20LOOP).mp4" type="video/mp4">
                 Your browser does not support the video element.
               </video>
+              <button class="mute-toggle" data-target="v3" aria-label="Unmute video">🔇 Unmute</button>
             </div>
             <div>
               <div class="p-title" id="p3">Visual Edit (2024)</div>
@@ -131,5 +141,27 @@
       <div><span class="badge-font">1k forever®</span> 2025</div>
     </footer>
   </div>
+  
+  <script>
+    // Mute/Unmute toggle functionality
+    document.querySelectorAll('.mute-toggle').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const videoId = button.dataset.target;
+        const video = document.querySelector(`video[data-video-id="${videoId}"]`);
+        
+        if (video) {
+          video.muted = !video.muted;
+          if (video.muted) {
+            button.textContent = '🔇 Unmute';
+            button.setAttribute('aria-label', 'Unmute video');
+          } else {
+            button.textContent = '🔊 Mute';
+            button.setAttribute('aria-label', 'Mute video');
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
