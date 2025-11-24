@@ -73,14 +73,39 @@
             box-shadow:0 20px 60px rgba(255,255,255,0.5), 0 0 50px rgba(255,255,255,0.4), inset 0 0 20px rgba(255,255,255,0.2);
             filter:brightness(1.2);
         }
+        /* Snow effect */
+        body{position:relative;overflow:hidden;}
+        .snow{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+        .buttons{position:relative;z-index:1;}
+        .snowflake{position:absolute;top:-10px;background:#fff;border-radius:50%;opacity:.85;filter:drop-shadow(0 0 2px #fff);animation:fall linear infinite;will-change:transform;}
+        @keyframes fall{to{transform:translateY(110vh) translateX(var(--drift));opacity:0.9;}}
     </style>
 </head>
 <body>
+    <div class="snow" aria-hidden="true"></div>
     <div class="buttons">
         <a class="btn" href="/about">About Me</a>
         <a class="btn" href="/shop">Shop</a>
         <a class="btn" href="https://linktr.ee/Adjustors_" target="_blank" rel="noopener">Socials</a>
         <a class="btn" href="/contact">Contact</a>
     </div>
+    <script>
+    (function(){
+      const container=document.querySelector('.snow');
+      const FLAKES=70; // adjust for more/less snow
+      for(let i=0;i<FLAKES;i++){
+        const f=document.createElement('span');
+        f.className='snowflake';
+        const size=(Math.random()*3+2); // 2px - 5px
+        f.style.width=size+'px';
+        f.style.height=size+'px';
+        f.style.left=Math.random()*100+'%';
+        f.style.animationDuration=(6+Math.random()*8)+'s';
+        f.style.animationDelay=(Math.random()*10)+'s';
+        f.style.setProperty('--drift', (Math.random()*40-20)+'px');
+        container.appendChild(f);
+      }
+    })();
+    </script>
 </body>
 </html>
