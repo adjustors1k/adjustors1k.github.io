@@ -1,0 +1,139 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Home — 1kfvr</title>
+    <meta name="description" content="Home of @adjustors1k — beats, videos, and more." />
+    <link rel="icon" type="image/png" href="/Images/1k fvr logo 4_000002_00000.png" />
+    <link rel="apple-touch-icon" href="/Images/1k fvr logo 4_000002_00000.png" />
+    <style>
+        :root{--bg:#000;--card:#0b0b0b;--muted:#bfbfbf;--accent:#fff;--glass:rgba(255,255,255,0.06);--radius:14px;--gap:18px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color-scheme:dark}
+        *{box-sizing:border-box}
+        body{margin:0;background:radial-gradient(1200px 600px at 80% -10%, rgba(255,255,255,0.08), transparent), radial-gradient(900px 500px at -10% 100%, rgba(255,255,255,0.07), transparent), var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased;line-height:1.45}
+        a{color:var(--accent);text-decoration:none}
+
+        .container{max-width:1200px;margin:0 auto;padding:28px}
+        header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
+        .brand{display:flex;gap:12px;align-items:center}
+        .logo{width:48px;height:48px;border-radius:10px;background:var(--accent);display:grid;place-items:center}
+        .logo img{width:100%;height:100%;object-fit:contain;border-radius:8px;display:block}
+        nav{display:flex;gap:10px;align-items:center}
+        .nav-link{font-size:0.95rem;color:var(--muted);padding:8px 10px;border-radius:8px}
+        .nav-link:hover{background:var(--glass);color:#fff}
+
+        .hero{display:grid;grid-template-columns:1.1fr 0.9fr;gap:26px;align-items:center;margin-top:8px}
+        .card{background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);box-shadow:0 10px 40px rgba(2,6,23,0.5)}
+        .hero .left{padding:36px}
+        .kicker{display:inline-block;color:var(--muted);font-size:0.86rem;letter-spacing:0.3px;margin-bottom:8px}
+        h1{font-size:clamp(2rem,6.5vw,4rem);line-height:1.05;margin:0 0 10px 0}
+        .sub{color:var(--muted);font-size:1.05rem;margin-bottom:20px}
+        .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+        .btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#000;padding:12px 18px;border-radius:10px;font-weight:700}
+        .btn.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2)}
+        .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,255,255,0.25)}
+
+        .hero .right{padding:0;display:grid;grid-template-rows:auto 1fr}
+        .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap);padding:26px}
+        .tile{padding:18px;display:flex;gap:12px;align-items:flex-start;border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.06)}
+        .tile:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(255,255,255,0.22)}
+        .tile .icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.9);display:grid;place-items:center;color:#000}
+        .tile h3{margin:2px 0 4px 0;font-size:1rem}
+        .tile p{margin:0;color:var(--muted);font-size:0.9rem}
+
+        footer{color:var(--muted);font-size:0.85rem;padding:20px 28px 40px;display:flex;justify-content:center}
+
+        @media (max-width: 840px){
+            .hero{grid-template-columns:1fr}
+            .hero .right{order:-1}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden>
+                    <img src="/Images/1k fvr logo 4_000002_00000.png" alt="1k fvr logo" />
+                </div>
+                <div>
+                    <div style="font-weight:700">@adjustors1k</div>
+                </div>
+            </div>
+            <nav>
+                <a class="nav-link" href="/home">Home</a>
+                <a class="nav-link" href="/about.html">About</a>
+                <a class="nav-link" href="/shop">Shop</a>
+                <a class="nav-link" href="/contact.html">Contact</a>
+                <a class="nav-link" href="https://linktr.ee/Adjustors_" target="_blank" rel="noopener">Socials</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="left card">
+                <span class="kicker">1k forever</span>
+                <h1>Beats, visuals, and energy by @adjustors1k</h1>
+                <div class="sub">Browse the shop for exclusive instrumentals and hear the latest drops. For edits, collabs, or custom work, hit contact.</div>
+                <div class="cta-row">
+                    <a class="btn" href="/shop" aria-label="Go to shop">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M7 18c-1.1 0-2-.9-2-2V7H3V5h3.6l1-2h6.8l1 2H20v2h-2v9c0 1.1-.9 2-2 2H7zm0-2h9V7H7v9z"/></svg>
+                        Visit shop
+                    </a>
+                    <a class="btn secondary" href="/contact.html" aria-label="Contact">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12l4-4h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/></svg>
+                        Contact
+                    </a>
+                    <a class="btn secondary" href="https://linktr.ee/Adjustors_" target="_blank" rel="noopener" aria-label="Socials">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        Socials
+                    </a>
+                    <a class="btn secondary" href="/about.html" aria-label="About">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4S8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        About
+                    </a>
+                </div>
+            </div>
+            <div class="right card">
+                <div class="grid">
+                    <a class="tile" href="/shop" aria-label="Trap beats">
+                        <div class="icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3v18M3 12h18"/></svg></div>
+                        <div>
+                            <h3>Trap beats</h3>
+                            <p>Punchy 808s, dark textures, and fast BPMs.</p>
+                        </div>
+                    </a>
+                    <a class="tile" href="/shop" aria-label="Drill beats">
+                        <div class="icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4 4h16v6H4zM9 14h6v6H9z"/></svg></div>
+                        <div>
+                            <h3>Drill beats</h3>
+                            <p>Glide basslines and menacing melodies.</p>
+                        </div>
+                    </a>
+                    <a class="tile" href="/shop" aria-label="Melodic vibes">
+                        <div class="icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3l4 8H8l4-8zm0 18a3 3 0 110-6 3 3 0 010 6z"/></svg></div>
+                        <div>
+                            <h3>Melodic vibes</h3>
+                            <p>Emotional chords and spacey ambience.</p>
+                        </div>
+                    </a>
+                    <a class="tile" href="/shop" aria-label="Bundles & kits">
+                        <div class="icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 8l-8-5-8 5v10l8 5 8-5z"/></svg></div>
+                        <div>
+                            <h3>Bundles & kits</h3>
+                            <p>Drum kits and packs coming soon.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year"></span> @adjustors1k — 1k forever
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

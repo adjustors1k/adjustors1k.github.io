@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>1kfvr</title>
+    <meta name="description" content="Portfolio of Andrew Rudman  video editor & music producer." />
+    <link rel="icon" type="image/png" href="Images/1k fvr logo 4_000002_00000.png" />
+    <link rel="apple-touch-icon" href="Images/1k fvr logo 4_000002_00000.png" />
+    <style>
+        :root{
+            --bg:#000000;
+            --accent:#ffffff;
+            --muted:#bfbfbf;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            color-scheme: dark;
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0;
+            background:var(--bg);
+            color:var(--accent);
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
+        }
+        .logo{
+            width:120px;
+            height:120px;
+            border-radius:20px;
+            margin-bottom:30px;
+            overflow:hidden;
+        }
+        .logo img{
+            width:100%;
+            height:100%;
+            object-fit:contain;
+            display:block;
+        }
+        h1{
+            margin:0 0 10px 0;
+            font-size:2rem;
+        }
+        .subtitle{
+            color:var(--muted);
+            margin-bottom:40px;
+            text-align:center;
+        }
+        .buttons{
+            display:flex;
+            flex-direction:column;
+            gap:25px;
+            width:100%;
+            max-width:700px;
+        }
+        .btn{
+            background:var(--accent);
+            color:#000;
+            padding:62px 60px;
+            border-radius:16px;
+            font-weight:600;
+            font-size:1.5rem;
+            text-align:center;
+            text-decoration:none;
+            transition:all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:0 4px 12px rgba(255,255,255,0.1);
+        }
+        .btn:hover{
+            transform:translateY(-12px) scale(1.1);
+            box-shadow:0 20px 60px rgba(255,255,255,0.5), 0 0 50px rgba(255,255,255,0.4), inset 0 0 20px rgba(255,255,255,0.2);
+            filter:brightness(1.2);
+        }
+        /* Snow effect */
+        body{position:relative;overflow:hidden;}
+        .snow{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+        .buttons{position:relative;z-index:1;}
+        .snowflake{position:absolute;top:-10px;background:#fff;border-radius:50%;opacity:.95;animation:fall linear infinite;will-change:transform;box-shadow:0 0 6px #fff,0 0 14px #fff;}
+        @keyframes fall{to{transform:translateY(110vh) translateX(var(--drift));opacity:0.9;}}
+    </style>
+</head>
+<body>
+    <div class="snow" aria-hidden="true"></div>
+    <div class="buttons">
+        <a class="btn" href="/about">About Me</a>
+        <a class="btn" href="/shop">Shop</a>
+        <a class="btn" href="https://linktr.ee/Adjustors_" target="_blank" rel="noopener">Socials</a>
+        <a class="btn" href="/contact">Contact</a>
+    </div>
+    <script>
+    (function(){
+      const container=document.querySelector('.snow');
+    const FLAKES=140; // increased for denser snowfall
+            for(let i=0;i<FLAKES;i++){
+        const f=document.createElement('span');
+        f.className='snowflake';
+                const size=(Math.random()*3+3); // 3px - 6px
+        f.style.width=size+'px';
+        f.style.height=size+'px';
+        f.style.left=Math.random()*100+'%';
+                f.style.animationDuration=(4+Math.random()*6)+'s'; // 4s - 10s faster
+        f.style.animationDelay=(Math.random()*10)+'s';
+        f.style.setProperty('--drift', (Math.random()*40-20)+'px');
+        container.appendChild(f);
+      }
+    })();
+    </script>
+</body>
+</html>

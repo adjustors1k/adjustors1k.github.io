@@ -1,0 +1,6 @@
+# Ignore large media directories
+Audio/
+Videos/
+
+# OS artifacts
+.DS_Store
