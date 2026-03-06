@@ -1,6 +1,5 @@
 # Ignore large media directories
-Audio/*
-!Audio/dash 147bpm Bmin @adjustors1k.mp3
+# (Audio is included so previews will work; keep Videos excluded to stay small)
 Videos/
 
 # OS artifacts
