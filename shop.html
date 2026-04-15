@@ -2273,60 +2273,6 @@
           </article>
           <article class="project beat" aria-labelledby="e4" data-title="this-way-final" data-genres="house">
             <div data-free="true">
-                  // Free Download toggle for EDM section (checkable, smaller, consistent font)
-                  document.addEventListener('DOMContentLoaded', function () {
-                    const genreFilter = document.getElementById('genre-filter');
-                    const edmGrid = document.getElementById('edmGrid');
-                    let freeMode = false;
-                    function updateFreeButton() {
-                      freeToggle.setAttribute('aria-pressed', freeMode ? 'true' : 'false');
-                      freeToggle.style.background = freeMode ? '#fff' : '#222';
-                      freeToggle.style.color = freeMode ? '#000' : '#fff';
-                      freeCheck.style.background = freeMode ? '#fff' : '#181818';
-                      freeCheck.style.borderColor = freeMode ? '#000' : '#fff';
-                      freeCheck.innerHTML = freeMode ? '<svg width="12" height="12" viewBox="0 0 12 12" style="display:block" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.5L5.5 9L9 3.5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>' : '';
-                    }
-                    function showOnlyFree() {
-                      edmGrid.querySelectorAll('.project.beat').forEach(function (el) {
-                        if (el.querySelector('[data-free="true"]')) {
-                          el.style.display = '';
-                        } else {
-                          el.style.display = 'none';
-                        }
-                      });
-                    }
-                    function showByGenre() {
-                      const value = genreFilter.value;
-                      edmGrid.querySelectorAll('.project.beat').forEach(function (el) {
-                        if (value === 'all') {
-                          el.style.display = '';
-                        } else if (el.getAttribute('data-genres') && el.getAttribute('data-genres').includes(value)) {
-                          el.style.display = '';
-                        } else {
-                          el.style.display = 'none';
-                        }
-                      });
-                    }
-                    if (genreFilter && edmGrid && freeToggle && freeCheck) {
-                      freeToggle.addEventListener('click', function () {
-                        freeMode = !freeMode;
-                        updateFreeButton();
-                        if (freeMode) {
-                          showOnlyFree();
-                        } else {
-                          showByGenre();
-                        }
-                      });
-                      genreFilter.addEventListener('change', function () {
-                        if (freeMode) {
-                          showOnlyFree();
-                        } else {
-                          showByGenre();
-                        }
-                      });
-                      updateFreeButton();
-                    }
-                  });
               <div class="p-title" id="e4" style="display:flex; align-items:center; gap:12px;">
                 <img src="Images/this way cover_00000.jpg" alt="This Way cover" style="width:48px; height:48px; border-radius:6px; object-fit:cover;" />
                 This Way
