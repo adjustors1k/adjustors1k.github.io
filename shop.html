@@ -198,7 +198,27 @@
 
       <!-- Beats Card -->
       <section class="card" aria-labelledby="beats-heading" style="margin-top:24px">
-        <h2 id="beats-heading" style="margin:0 0 16px 0;font-size:1.5rem">Beats</h2>
+        <h2 id="beats-heading" style="margin:0 0 16px 0;font-size:1.5rem;display:flex;align-items:center;gap:8px;">
+          Beats
+          <span style="position:relative;display:inline-block;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:0.65em;height:0.65em;border-radius:50%;background:#000;border:1px solid #fff;color:#fff;font-size:0.78em;line-height:0.95em;cursor:pointer;transition:background 0.2s;position:absolute;top:-0.9em;right:-0.3em;">
+              <span style="position:relative;top:-0.015em;transform:scale(0.45);display:inline-block;">i</span> <!-- Adjust 'top' here to tweak the 'i' y-position -->
+            </span>
+            <span style="visibility:hidden;opacity:0;position:absolute;left:115%;top:50%;transform:translateY(-50%) scale(0.85);background:rgba(34,34,34,0.5);color:#fff;padding:1.5px 18px 1.5px 18px;border-radius:5px;font-size:0.60em;white-space:normal;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,0.18);transition:opacity 0.2s;min-width:340px;max-width:400px;line-height:1.08;pointer-events:none;border:1px solid #444;display:flex;flex-direction:column;align-items:stretch;justify-content:center;">
+              <span style="font-weight:500;width:100%;text-align:left;">mp3 leases only</span>
+              <span style="margin-top:2px;width:100%;text-align:left;">For exclusive rights/WAVs contact me via email</span>
+              <span style="margin-top:2px;width:100%;text-align:left;">($400-$700)</span>
+            </span>
+          </span>
+          <style>
+            #beats-heading span[style*='position:relative'] span:first-child:hover + span,
+            #beats-heading span[style*='position:relative'] span:first-child:focus + span {
+              visibility: visible !important;
+              opacity: 1 !important;
+              pointer-events: auto !important;
+            }
+          </style>
+        </h2>
         <div id="beat-year-filter" style="margin-bottom:12px;display:flex;align-items:center;flex-wrap:wrap;gap:8px">
           <span style="font-size:0.9rem; color:var(--muted);">Year:</span>
           <button type="button" class="year-btn active" data-year="all">All</button>
@@ -212,13 +232,13 @@
             <div>
               <div class="p-title" id="b1">it ends here</div>
               <div style="color:var(--muted);font-size:0.85rem">166bpm · G#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/it%20ends%20here%20166bpm%20Gsharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/it%20ends%20here%20166bpm%20Gsharpmin%20%40adjustors1k.mp3" data-duration-limit="130" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="130" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
+                <!-- Updated: progress bar matches full duration (130s) -->
                 </div>
                 <div class="time-display">0:00</div>
                 <div class="actions" style="margin-top:0">
@@ -241,12 +261,11 @@
             <div>
               <div class="p-title" id="b2">red</div>
               <div style="color:var(--muted);font-size:0.85rem">143bpm · G#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/red%20143bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/red%20143bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="136" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="136" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -270,12 +289,11 @@
             <div>
               <div class="p-title" id="b3">whacked</div>
               <div style="color:var(--muted);font-size:0.85rem">150bpm · D#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/whacked%20150bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/whacked%20150bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="166" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="166" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -299,13 +317,14 @@
             <div>
               <div class="p-title" id="b4">multi</div>
               <div style="color:var(--muted);font-size:0.85rem">160bpm · Dmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/multi%20160bpm%20Dmin%20%40adjustors1k%20%40adjustors1k%20(ArtistConnect).mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/multi%20160bpm%20Dmin%20%40adjustors1k%20%40adjustors1k%20(ArtistConnect).mp3" data-duration-limit="144" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="144" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
+                <!-- Updated: progress bar matches full duration (144s) -->
+                <!-- Updated: progress bar matches full duration (144s) -->
                 </div>
                 <div class="time-display">0:00</div>
                 <div class="actions" style="margin-top:0">
@@ -328,8 +347,7 @@
             <div>
               <div class="p-title" id="b5">pitstop</div>
               <div style="color:var(--muted);font-size:0.85rem">161bpm · A#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/pitstop%20161bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/pitstop%20161bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="143" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -357,13 +375,14 @@
             <div>
               <div class="p-title" id="b6">hijacked</div>
               <div style="color:var(--muted);font-size:0.85rem">170bpm · D#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/hijacked%20170bpm%20Dsharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/hijacked%20170bpm%20Dsharpmin%20%40adjustors1k.mp3" data-duration-limit="113" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="113" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
+                <!-- Updated: progress bar matches full duration (113s) -->
+                <!-- Updated: progress bar matches full duration (113s) -->
                 </div>
                 <div class="time-display">0:00</div>
                 <div class="actions" style="margin-top:0">
@@ -386,8 +405,7 @@
             <div>
               <div class="p-title" id="b7">ninja</div>
               <div style="color:var(--muted);font-size:0.85rem">160bpm · A#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/ninja%20160bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/ninja%20160bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="143" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -411,16 +429,15 @@
             </div>
           </article>
 
-          <article class="project beat" aria-labelledby="b8" data-title="ok bit">
+          <article class="project beat" aria-labelledby="b8" data-title="okbit">
             <div>
-              <div class="p-title" id="b8">ok bit</div>
+              <div class="p-title" id="b8">okbit</div>
               <div style="color:var(--muted);font-size:0.85rem">146bpm · Fmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/ok%20bit%20146bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/ok%20bit%20146bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="105" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="105" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -444,12 +461,11 @@
             <div>
               <div class="p-title" id="b9">on time</div>
               <div style="color:var(--muted);font-size:0.85rem">158bpm · D#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/on%20time%20158bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/on%20time%20158bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="122" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="122" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -473,8 +489,7 @@
             <div>
               <div class="p-title" id="b10">revenge</div>
               <div style="color:var(--muted);font-size:0.85rem">156bpm · G#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/revenge-156bpm-Gsharpmin-at-adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/revenge-156bpm-Gsharpmin-at-adjustors1k.mp3" data-duration-limit="178" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -502,12 +517,11 @@
             <div>
               <div class="p-title" id="b11">team</div>
               <div style="color:var(--muted);font-size:0.85rem">142bpm · Bmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/team%20142bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/team%20142bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="108" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="108" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -531,12 +545,11 @@
             <div>
               <div class="p-title" id="b12">weapon</div>
               <div style="color:var(--muted);font-size:0.85rem">160bpm · A#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/weapon%20160bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/weapon%20160bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="108.042" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="108.042" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -560,12 +573,11 @@
             <div>
               <div class="p-title" id="b13">workingonliving</div>
               <div style="color:var(--muted);font-size:0.85rem">160bpm · Fmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/workingonliving%20160bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/workingonliving%20160bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="156.056" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="156.056" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -589,12 +601,11 @@
             <div>
               <div class="p-title" id="b14">dash</div>
               <div style="color:var(--muted);font-size:0.85rem">147bpm · Bmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/dash%20147bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/dash%20147bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="104.542" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="104.542" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -618,12 +629,11 @@
             <div>
               <div class="p-title" id="b15">departure</div>
               <div style="color:var(--muted);font-size:0.85rem">160bpm · Gmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/departure%20160bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/departure%20160bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="171.050" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="171.050" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -647,8 +657,7 @@
             <div>
               <div class="p-title" id="b16">howdoyoufeel</div>
               <div style="color:var(--muted);font-size:0.85rem">150bpm · Fmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/howdoyoufeel%20150bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/howdoyoufeel%20150bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="128.052" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -676,8 +685,7 @@
             <div>
               <div class="p-title" id="b17">tomandjerry</div>
               <div style="color:var(--muted);font-size:0.85rem">147bpm · Gmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/tomandjerry%20147bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/tomandjerry%20147bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="156.787" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -705,8 +713,7 @@
             <div>
               <div class="p-title" id="b18">demonstrate</div>
               <div style="color:var(--muted);font-size:0.85rem">168bpm · Bmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/demonstrate%20168bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/demonstrate%20168bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="125.753" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -734,8 +741,7 @@
             <div>
               <div class="p-title" id="b19">devotion</div>
               <div style="color:var(--muted);font-size:0.85rem">160bpm · Dmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/devotion%20160bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/devotion%20160bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="156.056" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -763,8 +769,7 @@
             <div>
               <div class="p-title" id="b20">lies</div>
               <div style="color:var(--muted);font-size:0.85rem">150bpm · G#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/lies%20150bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/lies%20150bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="128.052" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -792,8 +797,7 @@
             <div>
               <div class="p-title" id="b21">mercy</div>
               <div style="color:var(--muted);font-size:0.85rem">157bpm · D#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/mercy%20157bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/mercy%20157bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="122.331" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -821,8 +825,7 @@
             <div>
               <div class="p-title" id="b22">shark</div>
               <div style="color:var(--muted);font-size:0.85rem">150bpm · C#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/shark%20150bpm%20C%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/shark%20150bpm%20C%23min%20%40adjustors1k.mp3" data-duration-limit="128.052" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -850,8 +853,7 @@
             <div>
               <div class="p-title" id="b23">calling</div>
               <div style="color:var(--muted);font-size:0.85rem">163bpm · Emin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/calling%20163bpm%20Emin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/calling%20163bpm%20Emin%20%40adjustors1k.mp3" data-duration-limit="141.401" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -879,8 +881,7 @@
             <div>
               <div class="p-title" id="b24">constellations</div>
               <div style="color:var(--muted);font-size:0.85rem">157bpm · Dmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/constellations%20157bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/constellations%20157bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="146.782" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -908,8 +909,7 @@
             <div>
               <div class="p-title" id="b25">found em</div>
               <div style="color:var(--muted);font-size:0.85rem">161bpm · D#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/found%20em%20161bpm%20Dsharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/found%20em%20161bpm%20Dsharpmin%20%40adjustors1k.mp3" data-duration-limit="131.213" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -937,8 +937,7 @@
             <div>
               <div class="p-title" id="b26">otto</div>
               <div style="color:var(--muted);font-size:0.85rem">161bpm · Cmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/otto%20161bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/otto%20161bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="155.063" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -966,8 +965,7 @@
             <div>
               <div class="p-title" id="b27">karma</div>
               <div style="color:var(--muted);font-size:0.85rem">163bpm · C#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/karma%20163bpm%20Csharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/karma%20163bpm%20Csharpmin%20%40adjustors1k.mp3" data-duration-limit="153.182" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -995,8 +993,7 @@
             <div>
               <div class="p-title" id="b28">keltec</div>
               <div style="color:var(--muted);font-size:0.85rem">166bpm · A#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/keltec%20166bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/keltec%20166bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="127.269" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1024,8 +1021,7 @@
             <div>
               <div class="p-title" id="b29">selfcare</div>
               <div style="color:var(--muted);font-size:0.85rem">158bpm · Dmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/selfcare%20158bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/selfcare%20158bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="145.868" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1053,13 +1049,14 @@
             <div>
               <div class="p-title" id="b30">tokyo</div>
               <div style="color:var(--muted);font-size:0.85rem">157bpm · G#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/tokyo%20157bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/tokyo%20157bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="162.090" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
                 <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
-                  <div class="fill"></div>
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="162.090" aria-valuenow="0" tabindex="0">
+                    <div class="fill"></div>
+                  </div>
                 </div>
                 <div class="time-display">0:00</div>
                 <div class="actions" style="margin-top:0">
@@ -1082,13 +1079,14 @@
             <div>
               <div class="p-title" id="b31">cuba</div>
               <div style="color:var(--muted);font-size:0.85rem">156bpm · Cmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/cuba%20156bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/cuba%20156bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="160.052" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
                 <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
-                  <div class="fill"></div>
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="160.052" aria-valuenow="0" tabindex="0">
+                    <div class="fill"></div>
+                  </div>
                 </div>
                 <div class="time-display">0:00</div>
                 <div class="actions" style="margin-top:0">
@@ -1111,8 +1109,7 @@
             <div>
               <div class="p-title" id="b32">pop tarts</div>
               <div style="color:var(--muted);font-size:0.85rem">160bpm · A#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/pop%20tarts%20160bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/pop%20tarts%20160bpm%20A%23min%20%40adjustors1k.mp3" data-duration-limit="159.033" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1140,8 +1137,7 @@
             <div>
               <div class="p-title" id="b33">crunch time</div>
               <div style="color:var(--muted);font-size:0.85rem">165bpm · G#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/crunch%20time%20165bpm%20Gsharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/crunch%20time%20165bpm%20Gsharpmin%20%40adjustors1k.mp3" data-duration-limit="186.227" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1169,8 +1165,7 @@
             <div>
               <div class="p-title" id="b34">bridges</div>
               <div style="color:var(--muted);font-size:0.85rem">151bpm · F#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/bridges%20151bpm%20Fsharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/bridges%20151bpm%20Fsharpmin%20%40adjustors1k.mp3" data-duration-limit="152.633" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1198,8 +1193,7 @@
             <div>
               <div class="p-title" id="b35">can never change up</div>
               <div style="color:var(--muted);font-size:0.85rem">152bpm · G#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/can%20never%20change%20up%20152bpm%20Gsharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/can%20never%20change%20up%20152bpm%20Gsharpmin%20%40adjustors1k.mp3" data-duration-limit="180.036" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1227,8 +1221,7 @@
             <div>
               <div class="p-title" id="b36">colors</div>
               <div style="color:var(--muted);font-size:0.85rem">166bpm · Gmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/colors%20166bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/colors%20166bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="138.841" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1256,8 +1249,7 @@
             <div>
               <div class="p-title" id="b37">last place</div>
               <div style="color:var(--muted);font-size:0.85rem">156bpm · Gmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/last%20place%20156bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/last%20place%20156bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="147.749" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1285,8 +1277,7 @@
             <div>
               <div class="p-title" id="b38">prayer</div>
               <div style="color:var(--muted);font-size:0.85rem">155bpm · Bmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/prayer%20155bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/prayer%20155bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="123.925" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1314,8 +1305,7 @@
             <div>
               <div class="p-title" id="b39">recovery</div>
               <div style="color:var(--muted);font-size:0.85rem">154bpm · Fmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/recovery%20154bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/recovery%20154bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="149.656" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1343,8 +1333,7 @@
             <div>
               <div class="p-title" id="b40">pingpong</div>
               <div style="color:var(--muted);font-size:0.85rem">140bpm · Emin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/pingpong%20140bpm%20Emin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/pingpong%20140bpm%20Emin%20%40adjustors1k.mp3" data-duration-limit="109.767" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1372,8 +1361,7 @@
             <div>
               <div class="p-title" id="b41">invaders</div>
               <div style="color:var(--muted);font-size:0.85rem">161bpm · Fmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/invaders%20161bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/invaders%20161bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="143.151" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1401,12 +1389,11 @@
             <div>
               <div class="p-title" id="b42">options</div>
               <div style="color:var(--muted);font-size:0.85rem">136bpm · Emin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/options%20136bpm%20Emin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/options%20136bpm%20Emin%20%40adjustors1k.mp3" data-duration-limit="112.979575" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="112.979575" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1430,12 +1417,11 @@
             <div>
               <div class="p-title" id="b43">back</div>
               <div style="color:var(--muted);font-size:0.85rem">155bpm · G#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/back%20155bpm%20Gsharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/back%20155bpm%20Gsharpmin%20%40adjustors1k.mp3" data-duration-limit="161.071" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="161.071" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1459,12 +1445,11 @@
             <div>
               <div class="p-title" id="b44">fly</div>
               <div style="color:var(--muted);font-size:0.85rem">156bpm · G#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/fly%20156bpm%20Gsharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/fly%20156bpm%20Gsharpmin%20%40adjustors1k.mp3" data-duration-limit="147.74855" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="147.74855" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1488,12 +1473,11 @@
             <div>
               <div class="p-title" id="b45">harp</div>
               <div style="color:var(--muted);font-size:0.85rem">145bpm · C#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/harp%20145bpm%20Csharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/harp%20145bpm%20Csharpmin%20%40adjustors1k.mp3" data-duration-limit="162.246525" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="162.246525" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1517,12 +1501,11 @@
             <div>
               <div class="p-title" id="b46">maaly</div>
               <div style="color:var(--muted);font-size:0.85rem">160bpm · Bmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/maaly%20160bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/maaly%20160bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="144.039175" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="144.039175" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1546,12 +1529,11 @@
             <div>
               <div class="p-title" id="b47">no</div>
               <div style="color:var(--muted);font-size:0.85rem">140bpm · Fmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/no%20140bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/no%20140bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="109.766525" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="109.766525" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1575,12 +1557,11 @@
             <div>
               <div class="p-title" id="b48">scared</div>
               <div style="color:var(--muted);font-size:0.85rem">154bpm · Dmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/scared%20154bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/scared%20154bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="152.764075" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="152.764075" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1604,8 +1585,7 @@
             <div>
               <div class="p-title" id="b49">thunder</div>
               <div style="color:var(--muted);font-size:0.85rem">142bpm · Amin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/axpha%20142bpm%20Amin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/axpha%20142bpm%20Amin%20%40adjustors1k.mp3" data-duration-limit="122" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1634,11 +1614,11 @@
               <div class="p-title" id="b50">tv</div>
               <div style="color:var(--muted);font-size:0.85rem">143bpm · Cmin</div>
               <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/tv%20143bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/tv%20143bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="107.46775" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="107.46775" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1663,11 +1643,11 @@
               <div class="p-title" id="b51">supersonic</div>
               <div style="color:var(--muted);font-size:0.85rem">146bpm · Dmin</div>
               <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/supersonic%20146bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/supersonic%20146bpm%20Dmin%20%40adjustors1k.mp3" data-duration-limit="179.2261" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="179.2261" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1691,11 +1671,11 @@
               <div class="p-title" id="b52">hop scotch</div>
               <div style="color:var(--muted);font-size:0.85rem">161bpm · Cmin</div>
               <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/hop%20scotch%20161bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/hop%20scotch%20161bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="169.978775" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="169.978775" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1720,11 +1700,11 @@
               <div class="p-title" id="b53">fear</div>
               <div style="color:var(--muted);font-size:0.85rem">151bpm · D#min</div>
               <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/fear%20151bpm%20Dsharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/fear%20151bpm%20Dsharpmin%20%40adjustors1k.mp3" data-duration-limit="139.911825" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="139.911825" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1749,11 +1729,11 @@
               <div class="p-title" id="b54">rabbit</div>
               <div style="color:var(--muted);font-size:0.85rem">147bpm · D#min</div>
               <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/jack%20rabbit%20147bpm%20Dsharpmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/jack%20rabbit%20147bpm%20Dsharpmin%20%40adjustors1k.mp3" data-duration-limit="195.9706" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
-                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="195.9706" aria-valuenow="0" tabindex="0">
                   <div class="fill"></div>
                 </div>
                 <div class="time-display">0:00</div>
@@ -1777,8 +1757,7 @@
             <div>
               <div class="p-title" id="b55">kickstand</div>
               <div style="color:var(--muted);font-size:0.85rem">160bpm · Bmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/kickstand%20160bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/kickstand%20160bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="147" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1806,8 +1785,7 @@
             <div>
               <div class="p-title" id="b56">withdrawls</div>
               <div style="color:var(--muted);font-size:0.85rem">168bpm · Gmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/withdrawls%20168bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/withdrawls%20168bpm%20Gmin%20%40adjustors1k.mp3" data-duration-limit="126" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1834,8 +1812,7 @@
             <div>
               <div class="p-title" id="b60">resonations</div>
               <div style="color:var(--muted);font-size:0.85rem">150bpm · Cmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/resonations%20150bpm%20cmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/resonations%20150bpm%20cmin%20%40adjustors1k.mp3" data-duration-limit="166" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1862,8 +1839,7 @@
             <div>
               <div class="p-title" id="b61">kandi</div>
               <div style="color:var(--muted);font-size:0.85rem">189bpm · Emaj</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/Kandi%20189bpm%20Emaj%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/Kandi%20189bpm%20Emaj%20%40adjustors1k.mp3" data-duration-limit="122" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1890,8 +1866,7 @@
             <div>
               <div class="p-title" id="b62">kobalt tools</div>
               <div style="color:var(--muted);font-size:0.85rem">157bpm · F#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/Kobalt%20Tools%20157bpm%20F%23min%20%40adjustors1k%20%40adjustors1k%20(ArtistConnect).mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/Kobalt%20Tools%20157bpm%20F%23min%20%40adjustors1k%20%40adjustors1k%20(ArtistConnect).mp3" data-duration-limit="147" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1918,8 +1893,7 @@
             <div>
               <div class="p-title" id="b63">castle</div>
               <div style="color:var(--muted);font-size:0.85rem">163bpm · Fmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/castle%20163bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/castle%20163bpm%20Fmin%20%40adjustors1k.mp3" data-duration-limit="141" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1946,8 +1920,7 @@
             <div>
               <div class="p-title" id="b57">warmth</div>
               <div style="color:var(--muted);font-size:0.85rem">160bpm · Amin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/warmth%20160bpm%20Amin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/warmth%20160bpm%20Amin%20%40adjustors1k.mp3" data-duration-limit="120" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -1974,8 +1947,7 @@
             <div>
               <div class="p-title" id="b58">hollow</div>
               <div style="color:var(--muted);font-size:0.85rem">144bpm · G#min</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/hollow%20144bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/hollow%20144bpm%20G%23min%20%40adjustors1k.mp3" data-duration-limit="133" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -2002,8 +1974,7 @@
             <div>
               <div class="p-title" id="b59">activate</div>
               <div style="color:var(--muted);font-size:0.85rem">163bpm · Bmin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/activate%20163bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/activate%20163bpm%20Bmin%20%40adjustors1k.mp3" data-duration-limit="168" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -2030,8 +2001,7 @@
             <div>
               <div class="p-title" id="b2026">liabilities</div>
               <div style="color:var(--muted);font-size:0.85rem">163bpm · Amin</div>
-              <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
-              <div class="preview-row" data-audio-src="Audio/liabilities%20163bpm%20Amin%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
+              <div class="preview-row" data-audio-src="Audio/liabilities%20163bpm%20Amin%20%40adjustors1k.mp3" data-duration-limit="106" style="margin-top:6px">
                 <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 </button>
@@ -2046,6 +2016,60 @@
                     </svg>
                   </a>
                   <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="liabilities-2026">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="project beat" aria-labelledby="b2027" data-title="supersawme" data-year="2026">
+            <div>
+              <div class="p-title" id="b2027">supersawme</div>
+              <div style="color:var(--muted);font-size:0.85rem">154bpm · Emin</div>
+              <div class="preview-row" data-audio-src="Audio/supersawme%20154bpm%20Emin%20%40adjustors1k.mp3" data-duration-limit="137" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/r1zVo" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552 0-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="supersawme">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="project beat" aria-labelledby="b2028" data-title="raid" data-year="2026">
+            <div>
+              <div class="p-title" id="b2028">raid</div>
+              <div style="color:var(--muted);font-size:0.85rem">147bpm · Cmin</div>
+              <div class="preview-row" data-audio-src="Audio/raid%20147bpm%20Cmin%20%40adjustors1k.mp3" data-duration-limit="135" style="margin-top:6px">
+                <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
+                  <div class="fill"></div>
+                </div>
+                <div class="time-display">0:00</div>
+                <div class="actions" style="margin-top:0">
+                  <a class="icon-btn plus" href="https://payhip.com/b/aDIKh" target="_blank" rel="noopener" aria-label="Purchase on Payhip" title="Purchase on Payhip">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552 0-1 1-1z"/>
+                    </svg>
+                  </a>
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="raid">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                     </svg>
@@ -2211,7 +2235,7 @@
                                               <button class="play-btn" type="button" aria-label="Play preview" title="Play preview">
                                                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                                               </button>
-                                              <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="169" aria-valuenow="0" tabindex="0">
+                                              <div class="progress" aria-label="Playback progress" role="progressbar" aria-valuemin="0" aria-valuemax="160" aria-valuenow="0" tabindex="0">
                                                 <div class="fill"></div>
                                               </div>
                                               <div class="time-display">0:00</div>
