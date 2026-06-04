@@ -40,6 +40,9 @@
   .beats-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(520px, 1fr));gap:var(--gap)}
   .project.beat{max-width:none;min-height:150px;padding:14px;align-items:stretch}
   .project.beat.hidden{display:none}
+  .section-toolbar{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+  .section-search{flex:0 0 180px;width:180px;padding:4px 28px 4px 8px;border:1px solid #bdbdbd;border-radius:6px;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");background-position:right 8px center;background-repeat:no-repeat;background-size:12px 12px;color:var(--text);font:inherit;line-height:1.1}
+  .section-search::placeholder{color:var(--muted)}
   .project.beat:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 8px 20px rgba(255,255,255,0.2), 0 0 15px rgba(255,255,255,0.1);filter:brightness(1.1)}
   .project.beat audio{max-width:none;width:100%;height:46px;margin-top:4px}
   .project.beat > div{width:100%;align-items:stretch}
@@ -138,6 +141,9 @@
       <!-- Beats Card -->
       <section class="card" aria-labelledby="beats-heading" style="margin-top:24px">
         <h2 id="beats-heading" style="margin:0 0 16px 0;font-size:1.5rem">Beats</h2>
+        <div class="section-toolbar">
+          <input class="section-search" id="beats-search" type="search" placeholder="search" aria-label="Search beats" />
+        </div>
         <div class="beats-grid" id="beatsGrid" style="margin-top:12px">
                     <article class="project beat" aria-labelledby="b2026" data-title="liabilities">
                       <div>
@@ -1703,9 +1709,9 @@
             </div>
           </article>
 
-          <article class="project beat" aria-labelledby="b54" data-title="jack rabbit">
+          <article class="project beat" aria-labelledby="b54" data-title="rabbit">
             <div>
-              <div class="p-title" id="b54">jack rabbit</div>
+              <div class="p-title" id="b54">rabbit</div>
               <div style="color:var(--muted);font-size:0.85rem">147bpm · D#min</div>
               <div style="color:var(--muted);font-size:0.75rem;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px">Preview (30s)</div>
               <div class="preview-row" data-audio-src="Audio/jack%20rabbit%20147bpm%20D%23min%20%40adjustors1k.mp3" data-duration-limit="30" style="margin-top:6px">
@@ -1722,7 +1728,7 @@
                       <path d="M12 5c.552 0 1 .448 1 1v5h5c.552 0 1 .448 1 1s-.448 1-1 1h-5v5c0 .552-.448 1-1 1s-1-.448-1-1v-5H6c-.552 0-1-.448-1-1s.448-1 1-1h5V6c0-.552.448-1 1-1z"/>
                     </svg>
                   </a>
-                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="jack-rabbit">
+                  <button class="icon-btn star" type="button" aria-pressed="false" aria-label="Favorite" title="Favorite" data-fav-id="rabbit">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                     </svg>
@@ -1737,6 +1743,9 @@
       <!-- EDM Card -->
       <section class="card" aria-labelledby="edm-heading" style="margin-top:24px">
         <h2 id="edm-heading" style="margin:0 0 16px 0;font-size:1.5rem">EDM</h2>
+        <div class="section-toolbar">
+          <input class="section-search" id="edm-search" type="search" placeholder="search" aria-label="Search EDM" />
+        </div>
         <div class="beats-grid" id="edmGrid" style="margin-top:12px">
           <article class="project beat" aria-labelledby="e1" data-title="fall-final">
             <div>
@@ -1862,6 +1871,7 @@
     
     // Show first 6 beats, hide rest with Show More button
     const beatsGrid = document.getElementById('beatsGrid');
+    const beatsSearch = document.getElementById('beats-search');
     if (beatsGrid) {
       const allBeats = Array.from(beatsGrid.querySelectorAll('.project.beat'));
       const showMoreBtn = document.createElement('button');
@@ -1874,10 +1884,29 @@
       showLessBtn.textContent = 'show less';
       showLessBtn.type = 'button';
       
-      // Hide beats after the 6th
-      allBeats.forEach((beat, index) => {
-        if (index >= 6) beat.classList.add('hidden');
-      });
+      function getBeatSearchValue() {
+        return beatsSearch ? beatsSearch.value.trim().toLowerCase() : '';
+      }
+      function matchesBeatTitleQuery(title, query) {
+        if (!query) return true;
+        if (query.includes(' ')) return title.includes(query);
+        return title.split(/\s+/).some(word => word.startsWith(query));
+      }
+      function applyBeatVisibility() {
+        const query = getBeatSearchValue();
+        const visibleBeats = allBeats.filter(beat => {
+          const title = (beat.dataset.title || beat.querySelector('.p-title')?.textContent || '').toLowerCase();
+          const matches = matchesBeatTitleQuery(title, query);
+          beat.classList.toggle('hidden-search', !matches);
+          return matches;
+        });
+        allBeats.forEach(beat => beat.classList.add('hidden'));
+        visibleBeats.forEach((beat, index) => {
+          beat.classList.toggle('hidden', index >= 6);
+        });
+        showMoreBtn.classList.toggle('hidden', visibleBeats.length <= 6);
+        showLessBtn.classList.add('hidden');
+      }
       
       // Only show buttons if there are more than 6 beats
       if (allBeats.length > 6) {
@@ -1885,25 +1914,30 @@
         beatsGrid.parentElement.appendChild(showLessBtn);
         
         showMoreBtn.addEventListener('click', () => {
-          allBeats.forEach(beat => beat.classList.remove('hidden'));
+          allBeats.forEach(beat => {
+            if (!beat.classList.contains('hidden-search')) beat.classList.remove('hidden');
+          });
           showMoreBtn.classList.add('hidden');
           showLessBtn.classList.remove('hidden');
         });
         
         showLessBtn.addEventListener('click', () => {
-          allBeats.forEach((beat, index) => {
-            if (index >= 6) beat.classList.add('hidden');
-          });
-          showLessBtn.classList.add('hidden');
-          showMoreBtn.classList.remove('hidden');
+          applyBeatVisibility();
           // Scroll back to beats section
           beatsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       }
+      if (beatsSearch) {
+        beatsSearch.addEventListener('input', () => {
+          applyBeatVisibility();
+        });
+      }
+      applyBeatVisibility();
     }
     
     // Show first 6 EDM tracks, hide rest with Show More button
     const edmGrid = document.getElementById('edmGrid');
+    const edmSearch = document.getElementById('edm-search');
     if (edmGrid) {
       const allEdm = Array.from(edmGrid.querySelectorAll('.project.beat'));
       const showMoreBtnEdm = document.createElement('button');
@@ -1916,10 +1950,29 @@
       showLessBtnEdm.textContent = 'show less';
       showLessBtnEdm.type = 'button';
       
-      // Hide EDM tracks after the 6th
-      allEdm.forEach((track, index) => {
-        if (index >= 6) track.classList.add('hidden');
-      });
+      function getEdmSearchValue() {
+        return edmSearch ? edmSearch.value.trim().toLowerCase() : '';
+      }
+      function matchesEdmTitleQuery(title, query) {
+        if (!query) return true;
+        if (query.includes(' ')) return title.includes(query);
+        return title.split(/\s+/).some(word => word.startsWith(query));
+      }
+      function applyEdmVisibility() {
+        const query = getEdmSearchValue();
+        const visibleTracks = allEdm.filter(track => {
+          const title = (track.dataset.title || track.querySelector('.p-title')?.textContent || '').toLowerCase();
+          const matches = matchesEdmTitleQuery(title, query);
+          track.classList.toggle('hidden-search', !matches);
+          return matches;
+        });
+        allEdm.forEach(track => track.classList.add('hidden'));
+        visibleTracks.forEach((track, index) => {
+          track.classList.toggle('hidden', index >= 6);
+        });
+        showMoreBtnEdm.classList.toggle('hidden', visibleTracks.length <= 6);
+        showLessBtnEdm.classList.add('hidden');
+      }
       
       // Only show buttons if there are more than 6 EDM tracks
       if (allEdm.length > 6) {
@@ -1927,21 +1980,25 @@
         edmGrid.parentElement.appendChild(showLessBtnEdm);
         
         showMoreBtnEdm.addEventListener('click', () => {
-          allEdm.forEach(track => track.classList.remove('hidden'));
+          allEdm.forEach(track => {
+            if (!track.classList.contains('hidden-search')) track.classList.remove('hidden');
+          });
           showMoreBtnEdm.classList.add('hidden');
           showLessBtnEdm.classList.remove('hidden');
         });
         
         showLessBtnEdm.addEventListener('click', () => {
-          allEdm.forEach((track, index) => {
-            if (index >= 6) track.classList.add('hidden');
-          });
-          showLessBtnEdm.classList.add('hidden');
-          showMoreBtnEdm.classList.remove('hidden');
+          applyEdmVisibility();
           // Scroll back to EDM section
           edmGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       }
+      if (edmSearch) {
+        edmSearch.addEventListener('input', () => {
+          applyEdmVisibility();
+        });
+      }
+      applyEdmVisibility();
     }
     
     // Favorites: toggle star and persist to localStorage
