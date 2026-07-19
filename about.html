@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="refresh" content="0; url=/" />
   <title>About — 1kfvr</title>
   <meta name="description" content="About Andrew Rudman — video editor & music producer." />
   <link rel="icon" type="image/png" href="Images/1k fvr logo 4_000002_00000.png" />
   <link rel="apple-touch-icon" href="Images/1k fvr logo 4_000002_00000.png" />
   <script>
-    // Redirect about.html to /about for cleaner URLs (only on web server, not local file)
-    if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('about.html')) {
-      window.location.replace('/about');
+    // Route retired: redirect /about and /about.html to homepage.
+    if (window.location.protocol !== 'file:') {
+      window.location.replace('/');
     }
   </script>
   <style>
